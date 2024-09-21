@@ -22,11 +22,11 @@ import { HaloService } from './src/services/halo-service';
 import { KeyboardService } from './src/services/keyboard-service';
 
 import { ThemePicker } from './src/components/theme-picker';
-import { sampleGraphs } from './src/config/sample-graphs';
+// import { sampleGraphs } from './src/config/sample-graphs';
 
-import { init } from './src/services/app';
+// import { init } from './src/services/app';
 
-init()
+// init()
 
 const app = new KitchenSinkService(
     document.getElementById('app'),
@@ -42,7 +42,7 @@ app.startRappid();
 const themePicker = new ThemePicker({ mainView: app });
 document.body.appendChild(themePicker.render().el);
 
-app.graph.fromJSON(JSON.parse(sampleGraphs.emergencyProcedure));
+// app.graph.fromJSON(JSON.parse(sampleGraphs.emergencyProcedure));
 
 // for easier debugging in the browser's console
 declare let window: any;

@@ -1,23 +1,19 @@
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18 
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
-
-
 import * as joint from '@joint/plus';
 
 export class InspectorService {
 
     create(cell: joint.dia.Cell): joint.ui.Inspector {
-
+        const config = this.getInspectorConfig()[cell.get('type')];
+        if(!config) {
+            console.warn(`Inspector for cell type ${cell.get('type')} not found.`);
+            return null;
+        }
         const { groups, inputs } = this.getInspectorConfig()[cell.get('type')];
+        if(!groups || !inputs) {
+            console.warn(`Inspector config for cell type ${cell.get('type')} is invalid.`);
+            return null;
+        }
+
         return joint.ui.Inspector.create('.inspector-container', { cell, groups, inputs });
     }
 
@@ -179,7 +175,7 @@ export class InspectorService {
 
         return <{ [index: string]: any }>{
 
-            'app.Link': {
+            'Link': {
                 inputs: {
                     attrs: {
                         line: {
@@ -1269,7 +1265,7 @@ export class InspectorService {
                     }
                 }
             },
-            'app.RectangularModel': {
+            'RectangularModel': {
                 inputs: {
                     attrs: {
                         label: {
@@ -1500,7 +1496,7 @@ export class InspectorService {
                     }
                 }
             },
-            'app.CircularModel': {
+            'CircularModel': {
                 inputs: {
                     attrs: {
                         label: {
@@ -1745,6 +1741,139 @@ export class InspectorService {
                         label: 'Text',
                         index: 5
                     }
+                }
+            },
+            'Table': {
+                inputs: {
+                    attrs: {
+                        headerLabel: {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Table Name',
+                                group: 'text',
+                                index: 1
+                            },
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Header Color',
+                                group: 'text',
+                                index: 2
+                            }
+                        },
+                        tabColor: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Tab Color',
+                                group: 'presentation',
+                                index: 1
+                            }
+                        },
+                        body: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Fill',
+                                group: 'presentation',
+                                index: 2
+                            },
+                            stroke: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Stroke',
+                                group: 'presentation',
+                                index: 3
+                            }
+                        }
+                    },
+                    columns: {
+                        type: 'list',
+                        label: 'Columns',
+                        group: 'columns',
+                        item: {
+                            type: 'object',
+                            properties: {
+                                name: {
+                                    type: 'text',
+                                    label: 'Column Name'
+                                },
+                                type: {
+                                    type: 'select-box',
+                                    label: 'Data Type',
+                                    options: ['int', 'varchar', 'datetime', 'boolean']
+                                },
+                                key: {
+                                    type: 'toggle',
+                                    label: 'Primary Key'
+                                }
+                            }
+                        }
+                    }
+                },
+                groups: {
+                    text: { label: 'Text', index: 1 },
+                    presentation: { label: 'Presentation', index: 2 },
+                    columns: { label: 'Columns', index: 3 }
+                }
+            },
+            'UMLClass': {
+                inputs: {
+                    attrs: {
+                        label: {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Class Name',
+                                group: 'text',
+                                index: 1
+                            },
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Text Color',
+                                group: 'text',
+                                index: 2
+                            }
+                        },
+                        '.attributes': {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Attributes',
+                                group: 'attributes',
+                                index: 1
+                            }
+                        },
+                        '.methods': {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Methods',
+                                group: 'methods',
+                                index: 2
+                            }
+                        },
+                        body: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Fill',
+                                group: 'presentation',
+                                index: 1
+                            },
+                            stroke: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Stroke',
+                                group: 'presentation',
+                                index: 2
+                            }
+                        }
+                    }
+                },
+                groups: {
+                    text: { label: 'Class Name', index: 1 },
+                    attributes: { label: 'Attributes', index: 2 },
+                    methods: { label: 'Methods', index: 3 },
+                    presentation: { label: 'Presentation', index: 4 }
                 }
             }
         };

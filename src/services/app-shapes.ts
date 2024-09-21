@@ -14,7 +14,7 @@ file, You can obtain one at https://www.jointjs.com/license
 import * as joint from '@joint/plus';
 import { dia, shapes, util } from '@joint/plus';
 import { ColumnData } from './interfaces';
-// const cache = new Map();
+const cache = new Map();
 
 
 // export namespace app {
@@ -22,7 +22,7 @@ import { ColumnData } from './interfaces';
     export class Table extends shapes.standard.HeaderedRecord {
         defaults() {
             return util.defaultsDeep({
-                type: 'app.Table',
+                type: 'Table',
                 columns: [],
                 padding: { top: 40, bottom: 10, left: 10, right: 10 },
                 size: { width: 260 },
@@ -184,41 +184,6 @@ import { ColumnData } from './interfaces';
         }
     }
 
-    export class Link extends dia.Link {
-        defaults() {
-            return {
-                ...super.defaults,
-                type: 'app.Link',
-                z: -1,
-                attrs: {
-                    wrapper: {
-                        connection: true,
-                        strokeWidth: 10
-                    },
-                    line: {
-                        connection: true,
-                        stroke: '#A0A0A0',
-                        strokeWidth: 2
-                    }
-                }
-            }
-        }
-        markup = [{
-            tagName: 'path',
-            selector: 'wrapper',
-            attributes: {
-                'fill': 'none',
-                'stroke': 'transparent'
-            }
-        }, {
-            tagName: 'path',
-            selector: 'line',
-            attributes: {
-                'fill': 'none'
-            }
-        }]
-    }
-
     export class UMLClass extends joint.shapes.standard.Rectangle {
 
         portLabelMarkup = [{
@@ -229,7 +194,7 @@ import { ColumnData } from './interfaces';
         defaults() {
 
             return joint.util.defaultsDeep({
-                type: 'app.UMLClass',  // Define el tipo
+                type: 'UMLClass',  // Define el tipo
                 allowOrthogonalResize: false,  // No permitir el redimensionamiento ortogonal
                 size: { width: 100, height: 70 },  // Ajusta el tamaño según sea necesario
                 attrs: {
@@ -318,186 +283,403 @@ import { ColumnData } from './interfaces';
         }
     }
 
-
-    export class CircularModel extends joint.shapes.standard.Ellipse {
-
-        portLabelMarkup = [{
-            tagName: 'text',
-            selector: 'portLabel'
-        }];
-
+    export class Link extends dia.Link {
         defaults() {
-
-            return joint.util.defaultsDeep({
-                type: 'app.CircularModel',
+            return {
+                ...super.defaults,
+                type: 'Link',
+                z: -1,
                 attrs: {
-                    root: {
-                        magnet: false
-                    }
-                },
-                ports: {
-                    groups: {
-                        'in': {
-                            markup: [{
-                                tagName: 'circle',
-                                selector: 'portBody',
-                                attributes: {
-                                    'r': 10
-                                }
-                            }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'ellipse',
-                                args: {
-                                    startAngle: 0,
-                                    step: 30
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'radial',
-                                    args: null
-                                }
-                            }
-                        },
-                        'out': {
-                            markup: [{
-                                tagName: 'circle',
-                                selector: 'portBody',
-                                attributes: {
-                                    'r': 10
-                                }
-                            }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'ellipse',
-                                args: {
-                                    startAngle: 180,
-                                    step: 30
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'radial',
-                                    args: null
-                                }
-                            }
-                        }
+                    wrapper: {
+                        connection: true,
+                        strokeWidth: 10
+                    },
+                    line: {
+                        connection: true,
+                        stroke: '#A0A0A0',
+                        strokeWidth: 2
                     }
                 }
-            }, joint.shapes.standard.Ellipse.prototype.defaults);
+            }
         }
+        markup = [{
+            tagName: 'path',
+            selector: 'wrapper',
+            attributes: {
+                'fill': 'none',
+                'stroke': 'transparent'
+            }
+        }, {
+            tagName: 'path',
+            selector: 'line',
+            attributes: {
+                'fill': 'none'
+            }
+        }]
+
+        static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
+            const link = linkView.model;
+            const markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+            const opt: any = { offset: markerWidth, stroke: true };
+            // connection point for UML shapes lies on the root group containing all the shapes components
+            const modelType = view.model.get('type');
+            // taking the border stroke-width into account
+            if (modelType === 'standard.InscribedImage') { opt.selector = 'border'; }
+            return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+        }
+
+        getMarkerWidth(type: any) {
+            const d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+            return this.getDataWidth(d);
+        }
+
+        getDataWidth(d: any) {
+            return this.getDataWidthCached(d);
+        }
+
+        private getDataWidthCached = function(d: string){
+            if (cache.has(d)) {
+                return cache.get(d);
+            } else {
+                const bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
     }
 
-    export class RectangularModel extends joint.shapes.standard.Rectangle {
-
-        portLabelMarkup = [{
-            tagName: 'text',
-            selector: 'portLabel'
-        }];
-
+    export class Generalization extends dia.Link {
         defaults() {
-
-            return joint.util.defaultsDeep({
-                type: 'app.RectangularModel',
+            return {
+                ...super.defaults,
+                type: 'Link',
+                z: -1,
                 attrs: {
-                    root: { 
-                        magnet: false
-                    }
-                },
-                ports: {
-                    groups: {
-                        'in': {
-                            markup: [{
-                                tagName: 'circle',
-                                selector: 'portBody',
-                                attributes: {
-                                    'r': 10
-                                }
-                            }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'left'
-                            },
-                            label: {
-                                position: {
-                                    name: 'left',
-                                    args: {
-                                        y: 0
-                                    }
-                                }
-                            }
-                        },
-                        'out': {
-                            markup: [{
-                                tagName: 'circle',
-                                selector: 'portBody',
-                                attributes: {
-                                    'r': 10
-                                }
-                            }],
-                            position: {
-                                name: 'right'
-                            },
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'right',
-                                    args: {
-                                        y: 0
-                                    }
-                                }
-                            }
+                    wrapper: {
+                        connection: true,
+                        strokeWidth: 10
+                    },
+                    line: {
+                        stroke: '#000000',
+                        strokeWidth: 2,
+                        targetMarker: {
+                            type: 'path',
+                            d: 'M 10 0 L 0 -5 L 0 5 Z', // Flecha para generalización
+                            fill: 'white',
+                            stroke: '#000000',
                         }
                     }
+
                 }
-            }, joint.shapes.standard.Rectangle.prototype.defaults);
+            }
         }
+        markup = [{
+            tagName: 'path',
+            selector: 'wrapper',
+            attributes: {
+                'fill': 'none',
+                'stroke': 'transparent'
+            }
+        }, {
+            tagName: 'path',
+            selector: 'line',
+            attributes: {
+                'fill': 'none'
+            }
+        }]
+
+        static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
+            const link = linkView.model;
+            const markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+            const opt: any = { offset: markerWidth, stroke: true };
+            // connection point for UML shapes lies on the root group containing all the shapes components
+            const modelType = view.model.get('type');
+            // taking the border stroke-width into account
+            if (modelType === 'standard.InscribedImage') { opt.selector = 'border'; }
+            return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+        }
+
+        getMarkerWidth(type: any) {
+            const d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+            return this.getDataWidth(d);
+        }
+
+        getDataWidth(d: any) {
+            return this.getDataWidthCached(d);
+        }
+
+        private getDataWidthCached = function(d: string){
+            if (cache.has(d)) {
+                return cache.get(d);
+            } else {
+                const bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
     }
+    
+    // export class Aggregation extends dia.Link {
+    //     defaults() {
+    //         return joint.util.defaultsDeep({
+    //             type: 'Aggregation',
+    //             attrs: {
+    //                 line: {
+    //                     stroke: '#000000',
+    //                     strokeWidth: 2,
+    //                     targetMarker: {
+    //                         type: 'path',
+    //                         d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',  // Rombo vacío para agregación
+    //                         fill: 'white',
+    //                         stroke: '#000000',
+    //                     }
+    //                 }
+    //             }
+    //         }, dia.Link.prototype.defaults);
+    //     }
+    // }
+    
+    // export class Composition extends dia.Link {
+    //     defaults() {
+    //         return joint.util.defaultsDeep({
+    //             type: 'Composition',
+    //             attrs: {
+    //                 line: {
+    //                     stroke: '#000000',
+    //                     strokeWidth: 2,
+    //                     targetMarker: {
+    //                         type: 'path',
+    //                         d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',  // Rombo lleno para composición
+    //                         fill: '#000000',
+    //                         stroke: '#000000',
+    //                     }
+    //                 }
+    //             }
+    //         }, dia.Link.prototype.defaults);
+    //     }
+    // }
+    
+    // export class Dependency extends dia.Link {
+    //     defaults() {
+    //         return joint.util.defaultsDeep({
+    //             type: 'Dependency',
+    //             attrs: {
+    //                 line: {
+    //                     stroke: '#000000',
+    //                     strokeDasharray: '5, 2',  // Línea punteada para dependencia
+    //                     strokeWidth: 2,
+    //                     targetMarker: {
+    //                         type: 'path',
+    //                         d: 'M 10 0 L 0 -5 L 0 5 Z',  // Flecha abierta para dependencia
+    //                         fill: 'none',
+    //                         stroke: '#000000',
+    //                     }
+    //                 }
+    //             }
+    //         }, dia.Link.prototype.defaults);
+    //     }
+    // }
+    
+    // export class Association extends dia.Link {
+    //     defaults() {
+    //         return joint.util.defaultsDeep({
+    //             type: 'Association',
+    //             attrs: {
+    //                 line: {
+    //                     stroke: '#000000',
+    //                     strokeWidth: 2,
+    //                     targetMarker: {
+    //                         type: 'none'  // Línea simple para asociación
+    //                     }
+    //                 }
+    //             }
+    //         }, dia.Link.prototype.defaults);
+    //     }
+    // }
+    
+
+
+
+
+    // export class CircularModel extends joint.shapes.standard.Ellipse {
+
+    //     portLabelMarkup = [{
+    //         tagName: 'text',
+    //         selector: 'portLabel'
+    //     }];
+
+    //     defaults() {
+
+    //         return joint.util.defaultsDeep({
+    //             type: 'CircularModel',
+    //             attrs: {
+    //                 root: {
+    //                     magnet: false
+    //                 }
+    //             },
+    //             ports: {
+    //                 groups: {
+    //                     'in': {
+    //                         markup: [{
+    //                             tagName: 'circle',
+    //                             selector: 'portBody',
+    //                             attributes: {
+    //                                 'r': 10
+    //                             }
+    //                         }],
+    //                         attrs: {
+    //                             portBody: {
+    //                                 magnet: true,
+    //                                 fill: '#61549c',
+    //                                 strokeWidth: 0
+    //                             },
+    //                             portLabel: {
+    //                                 fontSize: 11,
+    //                                 fill: '#61549c',
+    //                                 fontWeight: 800
+    //                             }
+    //                         },
+    //                         position: {
+    //                             name: 'ellipse',
+    //                             args: {
+    //                                 startAngle: 0,
+    //                                 step: 30
+    //                             }
+    //                         },
+    //                         label: {
+    //                             position: {
+    //                                 name: 'radial',
+    //                                 args: null
+    //                             }
+    //                         }
+    //                     },
+    //                     'out': {
+    //                         markup: [{
+    //                             tagName: 'circle',
+    //                             selector: 'portBody',
+    //                             attributes: {
+    //                                 'r': 10
+    //                             }
+    //                         }],
+    //                         attrs: {
+    //                             portBody: {
+    //                                 magnet: true,
+    //                                 fill: '#61549c',
+    //                                 strokeWidth: 0
+    //                             },
+    //                             portLabel: {
+    //                                 fontSize: 11,
+    //                                 fill: '#61549c',
+    //                                 fontWeight: 800
+    //                             }
+    //                         },
+    //                         position: {
+    //                             name: 'ellipse',
+    //                             args: {
+    //                                 startAngle: 180,
+    //                                 step: 30
+    //                             }
+    //                         },
+    //                         label: {
+    //                             position: {
+    //                                 name: 'radial',
+    //                                 args: null
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }, joint.shapes.standard.Ellipse.prototype.defaults);
+    //     }
+    // }
+
+    // export class RectangularModel extends joint.shapes.standard.Rectangle {
+
+    //     portLabelMarkup = [{
+    //         tagName: 'text',
+    //         selector: 'portLabel'
+    //     }];
+
+    //     defaults() {
+
+    //         return joint.util.defaultsDeep({
+    //             type: 'RectangularModel',
+    //             attrs: {
+    //                 root: { 
+    //                     magnet: false
+    //                 }
+    //             },
+    //             ports: {
+    //                 groups: {
+    //                     'in': {
+    //                         markup: [{
+    //                             tagName: 'circle',
+    //                             selector: 'portBody',
+    //                             attributes: {
+    //                                 'r': 10
+    //                             }
+    //                         }],
+    //                         attrs: {
+    //                             portBody: {
+    //                                 magnet: true,
+    //                                 fill: '#61549c',
+    //                                 strokeWidth: 0
+    //                             },
+    //                             portLabel: {
+    //                                 fontSize: 11,
+    //                                 fill: '#61549c',
+    //                                 fontWeight: 800
+    //                             }
+    //                         },
+    //                         position: {
+    //                             name: 'left'
+    //                         },
+    //                         label: {
+    //                             position: {
+    //                                 name: 'left',
+    //                                 args: {
+    //                                     y: 0
+    //                                 }
+    //                             }
+    //                         }
+    //                     },
+    //                     'out': {
+    //                         markup: [{
+    //                             tagName: 'circle',
+    //                             selector: 'portBody',
+    //                             attributes: {
+    //                                 'r': 10
+    //                             }
+    //                         }],
+    //                         position: {
+    //                             name: 'right'
+    //                         },
+    //                         attrs: {
+    //                             portBody: {
+    //                                 magnet: true,
+    //                                 fill: '#61549c',
+    //                                 strokeWidth: 0
+    //                             },
+    //                             portLabel: {
+    //                                 fontSize: 11,
+    //                                 fill: '#61549c',
+    //                                 fontWeight: 800
+    //                             }
+    //                         },
+    //                         label: {
+    //                             position: {
+    //                                 name: 'right',
+    //                                 args: {
+    //                                     y: 0
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }, joint.shapes.standard.Rectangle.prototype.defaults);
+    //     }
+    // }
 
     // export class Link extends joint.shapes.standard.Link {
 
@@ -527,7 +709,7 @@ import { ColumnData } from './interfaces';
 
     //     static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
     //         const link = linkView.model;
-    //         const markerWidth = (link.get('type') === 'app.Link') ? link.getMarkerWidth(type) : 0;
+    //         const markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
     //         const opt: any = { offset: markerWidth, stroke: true };
     //         // connection point for UML shapes lies on the root group containing all the shapes components
     //         const modelType = view.model.get('type');
@@ -538,7 +720,7 @@ import { ColumnData } from './interfaces';
 
     //     defaults() {
     //         return joint.util.defaultsDeep({
-    //             type: 'app.Link',
+    //             type: 'Link',
     //             router: {
     //                 name: 'normal'
     //             },
@@ -583,7 +765,12 @@ import { ColumnData } from './interfaces';
         app: {
             Table,
             TableView,
-            Link
+            Link,
+            Generalization,
+            // Aggregation,
+            // Association,
+            // Composition,
+            // Dependency,
         }
     });
 // }

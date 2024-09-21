@@ -1,19 +1,5 @@
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18 
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
-
-
 export const sampleGraphs = {
 
-    // credit goes to `http://www.continuitycentral.com/`
     emergencyProcedure: `{
         "cells": [
             {
@@ -84,7 +70,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -136,7 +122,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -195,7 +181,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -256,7 +242,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -310,7 +296,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -368,7 +354,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -422,7 +408,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -479,7 +465,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -508,7 +494,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -597,7 +583,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -623,7 +609,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1110,7 +1096,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1135,7 +1121,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1154,7 +1140,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1173,7 +1159,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1198,7 +1184,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1217,7 +1203,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1236,7 +1222,7 @@ export const sampleGraphs = {
                 "attrs": {}
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1260,7 +1246,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1297,7 +1283,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1320,7 +1306,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1343,7 +1329,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1366,7 +1352,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1389,7 +1375,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },
@@ -1412,7 +1398,7 @@ export const sampleGraphs = {
                 }
             },
             {
-                "type": "app.Link",
+                "type": "Link",
                 "router": {
                     "name": "normal"
                 },

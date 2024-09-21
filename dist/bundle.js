@@ -5270,11 +5270,11 @@ exports.ThemePicker = ThemePicker;
 
 /***/ }),
 
-/***/ "./src/config/sample-graphs.ts":
-/*!*************************************!*\
-  !*** ./src/config/sample-graphs.ts ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ "./src/services/app-shapes.ts":
+/*!************************************!*\
+  !*** ./src/services/app-shapes.ts ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -5289,12 +5289,794 @@ This Source Code Form is subject to the terms of the JointJS+ Trial License
 , v. 2.0. If a copy of the JointJS+ License was not distributed with this
 file, You can obtain one at https://www.jointjs.com/license
  or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.sampleGraphs = void 0;
-exports.sampleGraphs = {
-    // credit goes to `http://www.continuitycentral.com/`
-    emergencyProcedure: "{\n        \"cells\": [\n            {\n                \"type\": \"standard.Polygon\",\n                \"position\": {\n                    \"x\": 435,\n                    \"y\": 225.50000000000003\n                },\n                \"size\": {\n                    \"width\": 160,\n                    \"height\": 98.99999999999994\n                },\n                \"angle\": 0,\n                \"id\": \"bbbd5104-4965-4b86-bcb1-1552bfbb04d6\",\n                \"z\": 88,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"refPoints\": \"50,0 100,50 50,100 0,50\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 15,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"Auto alarm\\nactivated?\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Ellipse\",\n                \"position\": {\n                    \"x\": 475,\n                    \"y\": 82\n                },\n                \"size\": {\n                    \"width\": 80,\n                    \"height\": 80\n                },\n                \"angle\": 0,\n                \"id\": \"6374dec5-83d1-4e31-832a-ac24755672a2\",\n                \"z\": 89,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#fe854f\",\n                        \"fill\": \"transparent\",\n                        \"strokeDasharray\": \"10,5\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 16,\n                        \"fill\": \"#fe854f\",\n                        \"text\": \"Fire\\nIncident\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Bold\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"6374dec5-83d1-4e31-832a-ac24755672a2\"\n                },\n                \"target\": {\n                    \"id\": \"bbbd5104-4965-4b86-bcb1-1552bfbb04d6\"\n                },\n                \"id\": \"56dc6e7b-916d-42fa-8d5b-0942474383e5\",\n                \"z\": 90,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"standard.Ellipse\",\n                \"position\": {\n                    \"x\": 375,\n                    \"y\": 260\n                },\n                \"size\": {\n                    \"width\": 30,\n                    \"height\": 30\n                },\n                \"angle\": 0,\n                \"id\": \"064747aa-f153-43bd-af2d-76e5b9a63a8c\",\n                \"z\": 91,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 11,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"No\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"bbbd5104-4965-4b86-bcb1-1552bfbb04d6\"\n                },\n                \"target\": {\n                    \"id\": \"064747aa-f153-43bd-af2d-76e5b9a63a8c\"\n                },\n                \"id\": \"4c3c6d56-4c5e-4def-93f7-953972f65086\",\n                \"z\": 92,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"targetMarker\": {\n                            \"d\": \"M 0 0 0 0\"\n                        }\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Ellipse\",\n                \"position\": {\n                    \"x\": 500,\n                    \"y\": 351\n                },\n                \"size\": {\n                    \"width\": 30,\n                    \"height\": 30\n                },\n                \"angle\": 0,\n                \"id\": \"3fd6a2d5-959c-4124-aa18-cc9cdc33cd3a\",\n                \"z\": 94,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 11,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"Yes\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"bbbd5104-4965-4b86-bcb1-1552bfbb04d6\"\n                },\n                \"target\": {\n                    \"id\": \"3fd6a2d5-959c-4124-aa18-cc9cdc33cd3a\"\n                },\n                \"id\": \"627c93be-f5f9-4a06-bf62-cfdc8eec3df2\",\n                \"z\": 95,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"targetMarker\": {\n                            \"d\": \"M 0 0 0 0\"\n                        }\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 660,\n                    \"y\": 248\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"0619ff3d-7bb1-4d5f-94e3-2b359b545077\",\n                \"z\": 96,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#fe854f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"10,5\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 15,\n                        \"fill\": \"#fe854f\",\n                        \"text\": \"Activate\\nevacuation\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"bbbd5104-4965-4b86-bcb1-1552bfbb04d6\"\n                },\n                \"target\": {\n                    \"id\": \"0619ff3d-7bb1-4d5f-94e3-2b359b545077\"\n                },\n                \"id\": \"bcaae721-b040-4916-815d-6abe67f9119f\",\n                \"z\": 98,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 250,\n                    \"y\": 339\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"cb9a597f-ea84-4b2f-bd50-0581c27ec557\",\n                \"z\": 99,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Employees\\ninforms\\nprimary\\ncontact\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"064747aa-f153-43bd-af2d-76e5b9a63a8c\"\n                },\n                \"target\": {\n                    \"id\": \"afc095b8-452b-4833-bb8f-ead56dfbf64e\"\n                },\n                \"id\": \"249acf5d-3c8a-4ec1-b730-410d637f9dbd\",\n                \"z\": 100,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\"\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 100,\n                    \"y\": 248\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"8cdadca1-587b-47f1-a9af-1ea813e098ea\",\n                \"z\": 101,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#fe854f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"10,5\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 15,\n                        \"fill\": \"#fe854f\",\n                        \"text\": \"Activate\\nevacuation\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"afc095b8-452b-4833-bb8f-ead56dfbf64e\"\n                },\n                \"target\": {\n                    \"id\": \"8cdadca1-587b-47f1-a9af-1ea813e098ea\"\n                },\n                \"id\": \"93eb8c3b-2256-468f-8516-032b413c7e81\",\n                \"z\": 102,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 250,\n                    \"y\": 248\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"afc095b8-452b-4833-bb8f-ead56dfbf64e\",\n                \"z\": 103,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Employees\\nmanually\\nactivates alarm\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"afc095b8-452b-4833-bb8f-ead56dfbf64e\"\n                },\n                \"target\": {\n                    \"id\": \"cb9a597f-ea84-4b2f-bd50-0581c27ec557\"\n                },\n                \"id\": \"46200e2d-4bd2-46db-844f-772ef273cbe5\",\n                \"z\": 104,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Polygon\",\n                \"position\": {\n                    \"x\": 435,\n                    \"y\": 411\n                },\n                \"size\": {\n                    \"width\": 160,\n                    \"height\": 98.99999999999994\n                },\n                \"angle\": 0,\n                \"id\": \"1eaf6c3a-520f-41c7-9ac7-7008c5cc3e44\",\n                \"z\": 106,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"refPoints\": \"50,0 100,50 50,100 0,50\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 11,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"Alarm monitoring\\nservice provider\\ncontacts organization?\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"cb9a597f-ea84-4b2f-bd50-0581c27ec557\"\n                },\n                \"target\": {\n                    \"id\": \"1eaf6c3a-520f-41c7-9ac7-7008c5cc3e44\"\n                },\n                \"id\": \"b5f09409-0526-4252-9289-739a24fd7839\",\n                \"z\": 107,\n                \"vertices\": [\n                    {\n                        \"x\": 295,\n                        \"y\": 460.5\n                    }\n                ],\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"3fd6a2d5-959c-4124-aa18-cc9cdc33cd3a\"\n                },\n                \"target\": {\n                    \"id\": \"1eaf6c3a-520f-41c7-9ac7-7008c5cc3e44\"\n                },\n                \"id\": \"70d38b87-d427-4da8-82ed-c98fb6f290dd\",\n                \"z\": 108,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\"\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Ellipse\",\n                \"position\": {\n                    \"x\": 500,\n                    \"y\": 542\n                },\n                \"size\": {\n                    \"width\": 30,\n                    \"height\": 30\n                },\n                \"angle\": 0,\n                \"id\": \"d61f5f92-b2c1-46fb-8677-40426f2db2a8\",\n                \"z\": 109,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 11,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"Yes\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Ellipse\",\n                \"position\": {\n                    \"x\": 625,\n                    \"y\": 495\n                },\n                \"size\": {\n                    \"width\": 30,\n                    \"height\": 30\n                },\n                \"angle\": 0,\n                \"id\": \"8167630c-8740-4bdc-bae2-2b85127eec04\",\n                \"z\": 110,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"fill\": \"transparent\",\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 11,\n                        \"fill\": \"#7c68fc\",\n                        \"text\": \"No\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"1eaf6c3a-520f-41c7-9ac7-7008c5cc3e44\"\n                },\n                \"target\": {\n                    \"id\": \"d61f5f92-b2c1-46fb-8677-40426f2db2a8\"\n                },\n                \"id\": \"a34c60c4-af41-4a47-a45d-3c02e9b7cf2a\",\n                \"z\": 111,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"targetMarker\": {\n                            \"d\": \"M 0 0 0 0\"\n                        }\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"1eaf6c3a-520f-41c7-9ac7-7008c5cc3e44\"\n                },\n                \"target\": {\n                    \"id\": \"8167630c-8740-4bdc-bae2-2b85127eec04\"\n                },\n                \"id\": \"10230441-e15f-4202-b37c-6aed52911f23\",\n                \"z\": 112,\n                \"vertices\": [\n                    {\n                        \"x\": 640,\n                        \"y\": 460.5\n                    }\n                ],\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\",\n                        \"targetMarker\": {\n                            \"d\": \"M 0 0 0 0\"\n                        }\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 468,\n                    \"y\": 607\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"d08f5ece-f171-4bbe-a7ee-ffd4b262ad92\",\n                \"z\": 115,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Primary\\ncontact\\nconfirms fire\\nincident\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 468,\n                    \"y\": 691\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"2c44a2f3-ab10-49c7-9ff2-74b74ef55253\",\n                \"z\": 116,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Service\\nProvider\\ncontacts Fire\\nDepartment\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 468,\n                    \"y\": 775\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"3d91727c-6b73-4ee7-b74a-dbba705654a8\",\n                \"z\": 117,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Fire Engines\\narrives\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 468,\n                    \"y\": 859\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"1a9926a7-7dc6-47ba-bfce-6c1c77b709f6\",\n                \"z\": 118,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 10,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Crisis\\nManagement\\nTeam Leader\\nbriefs\\nBattalion Chief\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 243,\n                    \"y\": 802\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"0a0a1a4d-b66c-4e8e-a1cc-5fe9fd62a7e3\",\n                \"z\": 119,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Crisis\\nManagement\\nTeam directs\\nfuture actions\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 243,\n                    \"y\": 718\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"803a2245-1f1c-48e0-93c5-ea9326d5012c\",\n                \"z\": 120,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Fire Department\\ngives All-Clear\\nsignal\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 243,\n                    \"y\": 635\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"ad56b0f5-490d-4991-adc7-4141c210e368\",\n                \"z\": 121,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#31d0c6\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#31d0c6\",\n                        \"text\": \"Fire Department\\nbecomes Incident\\nCommander\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 595,\n                    \"y\": 563\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"d4981a4a-d934-4ce5-9db4-13fe98e28a86\",\n                \"z\": 122,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Primary\\ncontact\\ncontacts Fire\\nDepartment\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 595,\n                    \"y\": 647\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"81010a6e-d5de-4b96-b665-f45bc2aa7ba9\",\n                \"z\": 123,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Primary contact\\ninforms\\nEmergency\\nResponse Team\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 595,\n                    \"y\": 731\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"878b7e3d-5079-4277-992c-4c0a7c39d3e8\",\n                \"z\": 124,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 10,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Emergency\\nResponse\\nTeam informs\\nCrisis\\nManagement Team\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 786,\n                    \"y\": 381\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"c850d5e9-95e2-4d90-a4ed-934a693a98cf\",\n                \"z\": 125,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Evacuees report\\nto Gathering\\nPoint / Safe Area\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 786,\n                    \"y\": 465\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"832f2c60-da26-4fff-8db4-5ea087bbeef7\",\n                \"z\": 126,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 12,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Roll call taken by\\nteam leads\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 786,\n                    \"y\": 549\n                },\n                \"size\": {\n                    \"width\": 90,\n                    \"height\": 54\n                },\n                \"angle\": 0,\n                \"id\": \"df93397c-c309-4ebe-9a33-51d51ea5b4fd\",\n                \"z\": 127,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"#8f8f8f\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 10,\n                        \"fill\": \"#8f8f8f\",\n                        \"text\": \"Floor Marshals\\nbrief Crisis\\nManagement\\nTeam using floor\\nplans\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"0619ff3d-7bb1-4d5f-94e3-2b359b545077\"\n                },\n                \"target\": {\n                    \"id\": \"c850d5e9-95e2-4d90-a4ed-934a693a98cf\"\n                },\n                \"id\": \"ee81ac0d-f8de-420b-8ac0-8b9df5ee279b\",\n                \"z\": 128,\n                \"vertices\": [\n                    {\n                        \"x\": 831,\n                        \"y\": 275\n                    }\n                ],\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"c850d5e9-95e2-4d90-a4ed-934a693a98cf\"\n                },\n                \"target\": {\n                    \"id\": \"832f2c60-da26-4fff-8db4-5ea087bbeef7\"\n                },\n                \"id\": \"3e742db6-c6f5-412f-b9ff-0b93a371145f\",\n                \"z\": 129,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"832f2c60-da26-4fff-8db4-5ea087bbeef7\"\n                },\n                \"target\": {\n                    \"id\": \"df93397c-c309-4ebe-9a33-51d51ea5b4fd\"\n                },\n                \"id\": \"5ffee384-4c12-4664-bd9b-0b6e62eb4498\",\n                \"z\": 130,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"df93397c-c309-4ebe-9a33-51d51ea5b4fd\"\n                },\n                \"target\": {\n                    \"id\": \"1a9926a7-7dc6-47ba-bfce-6c1c77b709f6\"\n                },\n                \"id\": \"c21b9ac0-f7c8-436e-a1a9-61611b7993cb\",\n                \"z\": 131,\n                \"vertices\": [\n                    {\n                        \"x\": 831,\n                        \"y\": 886\n                    }\n                ],\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"normal\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"d4981a4a-d934-4ce5-9db4-13fe98e28a86\"\n                },\n                \"target\": {\n                    \"id\": \"81010a6e-d5de-4b96-b665-f45bc2aa7ba9\"\n                },\n                \"id\": \"fc83084d-8d59-43a4-8478-787b0a889a82\",\n                \"z\": 132,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"normal\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"81010a6e-d5de-4b96-b665-f45bc2aa7ba9\"\n                },\n                \"target\": {\n                    \"id\": \"878b7e3d-5079-4277-992c-4c0a7c39d3e8\"\n                },\n                \"id\": \"0a11f6cb-95fd-4ef6-8d8c-fc7edf69f7d5\",\n                \"z\": 133,\n                \"attrs\": {}\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"8167630c-8740-4bdc-bae2-2b85127eec04\"\n                },\n                \"target\": {\n                    \"id\": \"d4981a4a-d934-4ce5-9db4-13fe98e28a86\"\n                },\n                \"id\": \"63362a6d-8f77-47a7-a6a3-67c1769348b4\",\n                \"z\": 134,\n                \"vertices\": [],\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"1a9926a7-7dc6-47ba-bfce-6c1c77b709f6\"\n                },\n                \"target\": {\n                    \"id\": \"ad56b0f5-490d-4991-adc7-4141c210e368\"\n                },\n                \"id\": \"f8eb10ae-a4a3-4f82-aaeb-72eef7c87108\",\n                \"z\": 135,\n                \"vertices\": [\n                    {\n                        \"x\": 401,\n                        \"y\": 886\n                    },\n                    {\n                        \"x\": 401,\n                        \"y\": 605\n                    },\n                    {\n                        \"x\": 288,\n                        \"y\": 605\n                    }\n                ],\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"ad56b0f5-490d-4991-adc7-4141c210e368\"\n                },\n                \"target\": {\n                    \"id\": \"803a2245-1f1c-48e0-93c5-ea9326d5012c\"\n                },\n                \"id\": \"a901a6e9-3c1d-4029-ac52-0aa962b5904a\",\n                \"z\": 136,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"803a2245-1f1c-48e0-93c5-ea9326d5012c\"\n                },\n                \"target\": {\n                    \"id\": \"0a0a1a4d-b66c-4e8e-a1cc-5fe9fd62a7e3\"\n                },\n                \"id\": \"080e362f-019c-4c3c-a0f6-599689eb218d\",\n                \"z\": 137,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"d61f5f92-b2c1-46fb-8677-40426f2db2a8\"\n                },\n                \"target\": {\n                    \"id\": \"d08f5ece-f171-4bbe-a7ee-ffd4b262ad92\"\n                },\n                \"id\": \"c57b02c8-1e1c-4c64-8641-052814b248bf\",\n                \"z\": 138,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#7c68fc\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"d08f5ece-f171-4bbe-a7ee-ffd4b262ad92\"\n                },\n                \"target\": {\n                    \"id\": \"2c44a2f3-ab10-49c7-9ff2-74b74ef55253\"\n                },\n                \"id\": \"71b59998-e319-4a93-b830-87f57850f8db\",\n                \"z\": 139,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"2c44a2f3-ab10-49c7-9ff2-74b74ef55253\"\n                },\n                \"target\": {\n                    \"id\": \"3d91727c-6b73-4ee7-b74a-dbba705654a8\"\n                },\n                \"id\": \"4153a528-afd7-4ced-80f3-d0d6205dcd18\",\n                \"z\": 140,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"app.Link\",\n                \"router\": {\n                    \"name\": \"normal\"\n                },\n                \"connector\": {\n                    \"name\": \"rounded\"\n                },\n                \"labels\": [],\n                \"source\": {\n                    \"id\": \"3d91727c-6b73-4ee7-b74a-dbba705654a8\"\n                },\n                \"target\": {\n                    \"id\": \"1a9926a7-7dc6-47ba-bfce-6c1c77b709f6\"\n                },\n                \"id\": \"88e395df-0004-4e67-9d50-dca0bce3ac77\",\n                \"z\": 141,\n                \"attrs\": {\n                    \"line\": {\n                        \"stroke\": \"#31d0c6\"\n                    }\n                }\n            },\n            {\n                \"type\": \"standard.Rectangle\",\n                \"position\": {\n                    \"x\": 100,\n                    \"y\": 110\n                },\n                \"size\": {\n                    \"width\": 230,\n                    \"height\": 50\n                },\n                \"angle\": 0,\n                \"id\": \"f7d17de6-0af5-4b03-836b-0d465e9a2285\",\n                \"z\": 142,\n                \"attrs\": {\n                    \"root\": {\n                        \"dataTooltipPosition\": \"left\",\n                        \"dataTooltipPositionSelector\": \".joint-stencil\"\n                    },\n                    \"body\": {\n                        \"stroke\": \"transparent\",\n                        \"fill\": \"transparent\",\n                        \"rx\": 2,\n                        \"ry\": 2,\n                        \"strokeDasharray\": \"0\"\n                    },\n                    \"label\": {\n                        \"fontSize\": 24,\n                        \"fill\": \"#4b4a67\",\n                        \"text\": \"Emergency Procedure\",\n                        \"fontFamily\": \"Roboto Condensed\",\n                        \"fontWeight\": \"Normal\",\n                        \"strokeWidth\": 0\n                    }\n                }\n            }\n        ]\n    }"
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.Association = exports.Dependency = exports.Composition = exports.Aggregation = exports.Generalization = exports.Link = exports.UMLClass = exports.Table = void 0;
+var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
+var plus_1 = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
+var cache = new Map();
+// export namespace app {
+var Table = /** @class */ (function (_super) {
+    __extends(Table, _super);
+    function Table() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Table.prototype.defaults = function () {
+        return plus_1.util.defaultsDeep({
+            type: 'Table',
+            columns: [],
+            padding: { top: 40, bottom: 10, left: 10, right: 10 },
+            size: { width: 260 },
+            itemMinLabelWidth: 80,
+            itemHeight: 25,
+            itemOffset: 0,
+            itemOverflow: true,
+            attrs: {
+                root: {
+                    magnet: false
+                },
+                body: {
+                    stroke: '#FFF',
+                    fill: '#FFF',
+                    strokeWidth: 1
+                },
+                tabColor: {
+                    x: -1,
+                    y: -5,
+                    width: 'calc(w+2)',
+                    height: 5,
+                    stroke: 'none',
+                    fill: '#6C6C6C',
+                    strokeWidth: 1
+                },
+                header: {
+                    fill: '#F8FAFC',
+                    stroke: '#F8FAFC',
+                    strokeWidth: 1,
+                },
+                headerLabel: {
+                    fill: '#636363',
+                    fontWeight: 'bold',
+                    fontFamily: 'sans-serif',
+                    textWrap: {
+                        ellipsis: true,
+                        height: 30
+                    }
+                },
+                itemBodies_0: {
+                    // SVGRect which is an active magnet
+                    // Do not use `true` to prevent CSS effects on hover
+                    magnet: 'item'
+                },
+                group_1: {
+                    // let the pointer events propagate to the group_0
+                    // which spans over 2 columns
+                    pointerEvents: 'none'
+                },
+                itemLabels: {
+                    fontFamily: 'sans-serif',
+                    fill: '#636363',
+                    pointerEvents: 'none'
+                },
+                itemLabels_1: {
+                    fill: '#9C9C9C',
+                    textAnchor: 'end',
+                    x: 'calc(0.5 * w - 10)'
+                },
+                itemLabels_keys: {
+                    x: 'calc(0.5 * w - 30)'
+                },
+                iconsGroup_1: {
+                    // SVGGroup does not accept `x` attribute
+                    refX: '50%',
+                    refX2: -26
+                }
+            }
+        }, _super.prototype.defaults);
+    };
+    Table.prototype.preinitialize = function () {
+        this.markup = [{
+                tagName: 'rect',
+                selector: 'body'
+            }, {
+                tagName: 'rect',
+                selector: 'header'
+            }, {
+                tagName: 'rect',
+                selector: 'tabColor'
+            }, {
+                tagName: 'text',
+                selector: 'headerLabel'
+            }];
+    };
+    Table.prototype.initialize = function () {
+        var _this = this;
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        _super.prototype.initialize.apply(this, args);
+        this.on('change', function () { return _this.onColumnsChange(); });
+        this._setColumns(this.get('columns'));
+    };
+    Table.prototype.onColumnsChange = function () {
+        if (this.hasChanged('columns')) {
+            this._setColumns(this.get('columns'));
+        }
+    };
+    Table.prototype.setName = function (name, opt) {
+        return this.attr(['headerLabel', 'text'], name, opt);
+    };
+    Table.prototype.getName = function () {
+        return this.attr(['headerLabel', 'text']);
+    };
+    Table.prototype.setTabColor = function (color) {
+        return this.attr(['tabColor', 'fill'], color);
+    };
+    Table.prototype.getTabColor = function () {
+        return this.attr(['tabColor', 'fill']);
+    };
+    Table.prototype.setColumns = function (data) {
+        this.set('columns', data);
+        return this;
+    };
+    Table.prototype.toJSON = function () {
+        var json = _super.prototype.toJSON.call(this);
+        // keeping only the `columns` attribute
+        delete json.items;
+        return json;
+    };
+    Table.prototype._setColumns = function (data) {
+        if (data === void 0) { data = []; }
+        var names = [];
+        var values = [];
+        data.forEach(function (item, i) {
+            if (!item.name)
+                return;
+            names.push({
+                id: item.name,
+                label: item.name,
+                span: 2
+            });
+            var value = {
+                id: "".concat(item.type, "_").concat(i),
+                label: item.type
+            };
+            if (item.key) {
+                Object.assign(value, {
+                    group: 'keys',
+                    icon: 'assets/key.svg'
+                });
+            }
+            values.push(value);
+        });
+        this.set('items', [names, values]);
+        this.removeInvalidLinks();
+        return this;
+    };
+    return Table;
+}(plus_1.shapes.standard.HeaderedRecord));
+exports.Table = Table;
+var UMLClass = /** @class */ (function (_super) {
+    __extends(UMLClass, _super);
+    function UMLClass() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.portLabelMarkup = [{
+                tagName: 'text',
+                selector: 'portLabel'
+            }];
+        return _this;
+    }
+    UMLClass.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'UMLClass',
+            allowOrthogonalResize: false,
+            size: { width: 100, height: 70 },
+            attrs: {
+                root: {
+                    dataTooltip: 'Class with ports',
+                    dataTooltipPosition: 'left',
+                    dataTooltipPositionSelector: '.joint-stencil'
+                },
+                body: {
+                    fill: 'transparent',
+                    stroke: '#31d0c6',
+                    strokeWidth: 2,
+                    strokeDasharray: '0',
+                },
+                label: {
+                    text: 'ClassName',
+                    fill: '#c6c7e2',
+                    fontFamily: 'Roboto Condensed',
+                    fontWeight: 'Normal',
+                    fontSize: 11,
+                    strokeWidth: 0
+                },
+                '.attributes': {
+                    text: '+ attribute1: String\n+ attribute2: Integer',
+                    fill: '#c6c7e2',
+                    fontFamily: 'Roboto Condensed',
+                    fontWeight: 'Normal',
+                    fontSize: 10,
+                    strokeWidth: 0
+                },
+                '.methods': {
+                    text: '+ method1(): void\n+ method2(param: String): String',
+                    fill: '#c6c7e2',
+                    fontFamily: 'Roboto Condensed',
+                    fontWeight: 'Normal',
+                    fontSize: 10,
+                    strokeWidth: 0
+                }
+            },
+            ports: {
+                items: [
+                    { group: 'in' },
+                    { group: 'in' },
+                    { group: 'out' }
+                ],
+                groups: {
+                    'in': {
+                        markup: [{
+                                tagName: 'circle',
+                                selector: 'portBody',
+                                attributes: {
+                                    'r': 5,
+                                    'fill': '#61549c'
+                                }
+                            }],
+                        attrs: {
+                            portBody: {
+                                magnet: true
+                            }
+                        },
+                        position: {
+                            name: 'top',
+                        }
+                    },
+                    'out': {
+                        markup: [{
+                                tagName: 'circle',
+                                selector: 'portBody',
+                                attributes: {
+                                    'r': 5,
+                                    'fill': '#31d0c6'
+                                }
+                            }],
+                        attrs: {
+                            portBody: {
+                                magnet: true
+                            }
+                        },
+                        position: {
+                            name: 'bottom',
+                        }
+                    }
+                }
+            }
+        }, joint.shapes.standard.Rectangle.prototype.defaults);
+    };
+    return UMLClass;
+}(joint.shapes.standard.Rectangle));
+exports.UMLClass = UMLClass;
+var Link = /** @class */ (function (_super) {
+    __extends(Link, _super);
+    function Link() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.markup = [{
+                tagName: 'path',
+                selector: 'wrapper',
+                attributes: {
+                    'fill': 'none',
+                    'stroke': 'transparent'
+                }
+            }, {
+                tagName: 'path',
+                selector: 'line',
+                attributes: {
+                    'fill': 'none'
+                }
+            }];
+        _this.getDataWidthCached = function (d) {
+            if (cache.has(d)) {
+                return cache.get(d);
+            }
+            else {
+                var bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
+        return _this;
+    }
+    Link.prototype.defaults = function () {
+        return __assign(__assign({}, _super.prototype.defaults), { type: 'Link', z: -1, attrs: {
+                wrapper: {
+                    connection: true,
+                    strokeWidth: 10
+                },
+                line: {
+                    connection: true,
+                    stroke: '#A0A0A0',
+                    strokeWidth: 2
+                }
+            } });
+    };
+    Link.connectionPoint = function (line, view, magnet, _opt, type, linkView) {
+        var link = linkView.model;
+        var markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+        var opt = { offset: markerWidth, stroke: true };
+        // connection point for UML shapes lies on the root group containing all the shapes components
+        var modelType = view.model.get('type');
+        // taking the border stroke-width into account
+        if (modelType === 'standard.InscribedImage') {
+            opt.selector = 'border';
+        }
+        return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+    };
+    Link.prototype.getMarkerWidth = function (type) {
+        var d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+        return this.getDataWidth(d);
+    };
+    Link.prototype.getDataWidth = function (d) {
+        return this.getDataWidthCached(d);
+    };
+    return Link;
+}(plus_1.dia.Link));
+exports.Link = Link;
+var Generalization = /** @class */ (function (_super) {
+    __extends(Generalization, _super);
+    function Generalization() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Generalization.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'Generalization',
+            attrs: {
+                line: {
+                    stroke: '#000000',
+                    strokeWidth: 2,
+                    targetMarker: {
+                        type: 'path',
+                        d: 'M 10 0 L 0 -5 L 0 5 Z',
+                        fill: 'white',
+                        stroke: '#000000',
+                    }
+                }
+            }
+        }, plus_1.dia.Link.prototype.defaults);
+    };
+    return Generalization;
+}(plus_1.dia.Link));
+exports.Generalization = Generalization;
+var Aggregation = /** @class */ (function (_super) {
+    __extends(Aggregation, _super);
+    function Aggregation() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Aggregation.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'Aggregation',
+            attrs: {
+                line: {
+                    stroke: '#000000',
+                    strokeWidth: 2,
+                    targetMarker: {
+                        type: 'path',
+                        d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',
+                        fill: 'white',
+                        stroke: '#000000',
+                    }
+                }
+            }
+        }, plus_1.dia.Link.prototype.defaults);
+    };
+    return Aggregation;
+}(plus_1.dia.Link));
+exports.Aggregation = Aggregation;
+var Composition = /** @class */ (function (_super) {
+    __extends(Composition, _super);
+    function Composition() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Composition.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'Composition',
+            attrs: {
+                line: {
+                    stroke: '#000000',
+                    strokeWidth: 2,
+                    targetMarker: {
+                        type: 'path',
+                        d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',
+                        fill: '#000000',
+                        stroke: '#000000',
+                    }
+                }
+            }
+        }, plus_1.dia.Link.prototype.defaults);
+    };
+    return Composition;
+}(plus_1.dia.Link));
+exports.Composition = Composition;
+var Dependency = /** @class */ (function (_super) {
+    __extends(Dependency, _super);
+    function Dependency() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Dependency.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'Dependency',
+            attrs: {
+                line: {
+                    stroke: '#000000',
+                    strokeDasharray: '5, 2',
+                    strokeWidth: 2,
+                    targetMarker: {
+                        type: 'path',
+                        d: 'M 10 0 L 0 -5 L 0 5 Z',
+                        fill: 'none',
+                        stroke: '#000000',
+                    }
+                }
+            }
+        }, plus_1.dia.Link.prototype.defaults);
+    };
+    return Dependency;
+}(plus_1.dia.Link));
+exports.Dependency = Dependency;
+var Association = /** @class */ (function (_super) {
+    __extends(Association, _super);
+    function Association() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Association.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'Association',
+            attrs: {
+                line: {
+                    stroke: '#000000',
+                    strokeWidth: 2,
+                    targetMarker: {
+                        type: 'none' // Línea simple para asociación
+                    }
+                }
+            }
+        }, plus_1.dia.Link.prototype.defaults);
+    };
+    return Association;
+}(plus_1.dia.Link));
+exports.Association = Association;
+// export class CircularModel extends joint.shapes.standard.Ellipse {
+//     portLabelMarkup = [{
+//         tagName: 'text',
+//         selector: 'portLabel'
+//     }];
+//     defaults() {
+//         return joint.util.defaultsDeep({
+//             type: 'CircularModel',
+//             attrs: {
+//                 root: {
+//                     magnet: false
+//                 }
+//             },
+//             ports: {
+//                 groups: {
+//                     'in': {
+//                         markup: [{
+//                             tagName: 'circle',
+//                             selector: 'portBody',
+//                             attributes: {
+//                                 'r': 10
+//                             }
+//                         }],
+//                         attrs: {
+//                             portBody: {
+//                                 magnet: true,
+//                                 fill: '#61549c',
+//                                 strokeWidth: 0
+//                             },
+//                             portLabel: {
+//                                 fontSize: 11,
+//                                 fill: '#61549c',
+//                                 fontWeight: 800
+//                             }
+//                         },
+//                         position: {
+//                             name: 'ellipse',
+//                             args: {
+//                                 startAngle: 0,
+//                                 step: 30
+//                             }
+//                         },
+//                         label: {
+//                             position: {
+//                                 name: 'radial',
+//                                 args: null
+//                             }
+//                         }
+//                     },
+//                     'out': {
+//                         markup: [{
+//                             tagName: 'circle',
+//                             selector: 'portBody',
+//                             attributes: {
+//                                 'r': 10
+//                             }
+//                         }],
+//                         attrs: {
+//                             portBody: {
+//                                 magnet: true,
+//                                 fill: '#61549c',
+//                                 strokeWidth: 0
+//                             },
+//                             portLabel: {
+//                                 fontSize: 11,
+//                                 fill: '#61549c',
+//                                 fontWeight: 800
+//                             }
+//                         },
+//                         position: {
+//                             name: 'ellipse',
+//                             args: {
+//                                 startAngle: 180,
+//                                 step: 30
+//                             }
+//                         },
+//                         label: {
+//                             position: {
+//                                 name: 'radial',
+//                                 args: null
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }, joint.shapes.standard.Ellipse.prototype.defaults);
+//     }
+// }
+// export class RectangularModel extends joint.shapes.standard.Rectangle {
+//     portLabelMarkup = [{
+//         tagName: 'text',
+//         selector: 'portLabel'
+//     }];
+//     defaults() {
+//         return joint.util.defaultsDeep({
+//             type: 'RectangularModel',
+//             attrs: {
+//                 root: { 
+//                     magnet: false
+//                 }
+//             },
+//             ports: {
+//                 groups: {
+//                     'in': {
+//                         markup: [{
+//                             tagName: 'circle',
+//                             selector: 'portBody',
+//                             attributes: {
+//                                 'r': 10
+//                             }
+//                         }],
+//                         attrs: {
+//                             portBody: {
+//                                 magnet: true,
+//                                 fill: '#61549c',
+//                                 strokeWidth: 0
+//                             },
+//                             portLabel: {
+//                                 fontSize: 11,
+//                                 fill: '#61549c',
+//                                 fontWeight: 800
+//                             }
+//                         },
+//                         position: {
+//                             name: 'left'
+//                         },
+//                         label: {
+//                             position: {
+//                                 name: 'left',
+//                                 args: {
+//                                     y: 0
+//                                 }
+//                             }
+//                         }
+//                     },
+//                     'out': {
+//                         markup: [{
+//                             tagName: 'circle',
+//                             selector: 'portBody',
+//                             attributes: {
+//                                 'r': 10
+//                             }
+//                         }],
+//                         position: {
+//                             name: 'right'
+//                         },
+//                         attrs: {
+//                             portBody: {
+//                                 magnet: true,
+//                                 fill: '#61549c',
+//                                 strokeWidth: 0
+//                             },
+//                             portLabel: {
+//                                 fontSize: 11,
+//                                 fill: '#61549c',
+//                                 fontWeight: 800
+//                             }
+//                         },
+//                         label: {
+//                             position: {
+//                                 name: 'right',
+//                                 args: {
+//                                     y: 0
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }, joint.shapes.standard.Rectangle.prototype.defaults);
+//     }
+// }
+// export class Link extends joint.shapes.standard.Link {
+//     defaultLabel = {
+//         attrs: {
+//             rect: {
+//                 fill: '#ffffff',
+//                 stroke: '#8f8f8f',
+//                 strokeWidth: 1,
+//                 width: 'calc(w + 10)',
+//                 height: 'calc(h + 10)',
+//                 x: 'calc(x - 5)',
+//                 y: 'calc(y - 5)'
+//             }
+//         }
+//     };
+//     private getDataWidthCached = function(d: string){
+//         if (cache.has(d)) {
+//             return cache.get(d);
+//         } else {
+//             const bbox = (new joint.g.Path(d)).bbox();
+//             cache.set(d, bbox ? bbox.width : 0);
+//             return cache.get(d);
+//         }
+//     };
+//     static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
+//         const link = linkView.model;
+//         const markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+//         const opt: any = { offset: markerWidth, stroke: true };
+//         // connection point for UML shapes lies on the root group containing all the shapes components
+//         const modelType = view.model.get('type');
+//         // taking the border stroke-width into account
+//         if (modelType === 'standard.InscribedImage') { opt.selector = 'border'; }
+//         return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+//     }
+//     defaults() {
+//         return joint.util.defaultsDeep({
+//             type: 'Link',
+//             router: {
+//                 name: 'normal'
+//             },
+//             connector: {
+//                 name: 'rounded'
+//             },
+//             labels: [],
+//             attrs: {
+//                 line: {
+//                     stroke: '#8f8f8f',
+//                     strokeDasharray: '0',
+//                     strokeWidth: 2,
+//                     fill: 'none',
+//                     sourceMarker: {
+//                         type: 'path',
+//                         d: 'M 0 0 0 0',
+//                         stroke: 'none'
+//                     },
+//                     targetMarker: {
+//                         type: 'path',
+//                         d: 'M 0 -5 -10 0 0 5 z',
+//                         stroke: 'none'
+//                     }
+//                 }
+//             }
+//         }, joint.shapes.standard.Link.prototype.defaults);
+//     }
+//     getMarkerWidth(type: any) {
+//         const d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+//         return this.getDataWidth(d);
+//     }
+//     getDataWidth(d: any) {
+//         return this.getDataWidthCached(d);
+//     }
+// }
+var TableView = plus_1.shapes.standard.RecordView;
+Object.assign(plus_1.shapes, {
+    app: {
+        Table: Table,
+        TableView: TableView,
+        Link: Link,
+        Aggregation: Aggregation,
+        Association: Association,
+        Composition: Composition,
+        Dependency: Dependency,
+    }
+});
+// }
+exports.NavigatorElementView = joint.dia.ElementView.extend({
+    body: null,
+    markup: [{
+            tagName: 'rect',
+            selector: 'body',
+            attributes: {
+                'fill': '#31d0c6'
+            }
+        }],
+    initFlag: ['RENDER', 'UPDATE', 'TRANSFORM'],
+    presentationAttributes: {
+        size: ['UPDATE'],
+        position: ['TRANSFORM'],
+        angle: ['TRANSFORM']
+    },
+    confirmUpdate: function (flags) {
+        if (this.hasFlag(flags, 'RENDER')) {
+            this.render();
+        }
+        if (this.hasFlag(flags, 'UPDATE')) {
+            this.update();
+        }
+        if (this.hasFlag(flags, 'TRANSFORM')) {
+            this.updateTransformation();
+        }
+    },
+    render: function () {
+        var _a = joint.util.parseDOMJSON(this.markup), fragment = _a.fragment, body = _a.selectors.body;
+        this.body = body;
+        this.el.appendChild(fragment);
+    },
+    update: function () {
+        var _a = this, model = _a.model, body = _a.body;
+        var _b = model.size(), width = _b.width, height = _b.height;
+        body.setAttribute('width', width);
+        body.setAttribute('height', height);
+    }
+});
+exports.NavigatorLinkView = joint.dia.LinkView.extend({
+    defaultTheme: null,
+    initialize: function (options) {
+        joint.mvc.View.prototype.initialize.call(this, options);
+    },
+    onMount: joint.util.noop,
+    render: joint.util.noop,
+    update: joint.util.noop
+});
+// re-export build-in shapes from rappid
+exports.standard = joint.shapes.standard;
 
 
 /***/ }),
@@ -5429,17 +6211,6 @@ exports.HaloService = HaloService;
 
 "use strict";
 
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InspectorService = void 0;
 var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
@@ -5447,7 +6218,16 @@ var InspectorService = /** @class */ (function () {
     function InspectorService() {
     }
     InspectorService.prototype.create = function (cell) {
+        var config = this.getInspectorConfig()[cell.get('type')];
+        if (!config) {
+            console.warn("Inspector for cell type ".concat(cell.get('type'), " not found."));
+            return null;
+        }
         var _a = this.getInspectorConfig()[cell.get('type')], groups = _a.groups, inputs = _a.inputs;
+        if (!groups || !inputs) {
+            console.warn("Inspector config for cell type ".concat(cell.get('type'), " is invalid."));
+            return null;
+        }
         return joint.ui.Inspector.create('.inspector-container', { cell: cell, groups: groups, inputs: inputs });
     };
     InspectorService.prototype.getInspectorConfig = function () {
@@ -5589,7 +6369,7 @@ var InspectorService = /** @class */ (function () {
                 }]
         };
         return {
-            'app.Link': {
+            'Link': {
                 inputs: {
                     attrs: {
                         line: {
@@ -6679,7 +7459,7 @@ var InspectorService = /** @class */ (function () {
                     }
                 }
             },
-            'app.RectangularModel': {
+            'RectangularModel': {
                 inputs: {
                     attrs: {
                         label: {
@@ -6910,7 +7690,7 @@ var InspectorService = /** @class */ (function () {
                     }
                 }
             },
-            'app.CircularModel': {
+            'CircularModel': {
                 inputs: {
                     attrs: {
                         label: {
@@ -7156,6 +7936,139 @@ var InspectorService = /** @class */ (function () {
                         index: 5
                     }
                 }
+            },
+            'Table': {
+                inputs: {
+                    attrs: {
+                        headerLabel: {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Table Name',
+                                group: 'text',
+                                index: 1
+                            },
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Header Color',
+                                group: 'text',
+                                index: 2
+                            }
+                        },
+                        tabColor: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Tab Color',
+                                group: 'presentation',
+                                index: 1
+                            }
+                        },
+                        body: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Fill',
+                                group: 'presentation',
+                                index: 2
+                            },
+                            stroke: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Stroke',
+                                group: 'presentation',
+                                index: 3
+                            }
+                        }
+                    },
+                    columns: {
+                        type: 'list',
+                        label: 'Columns',
+                        group: 'columns',
+                        item: {
+                            type: 'object',
+                            properties: {
+                                name: {
+                                    type: 'text',
+                                    label: 'Column Name'
+                                },
+                                type: {
+                                    type: 'select-box',
+                                    label: 'Data Type',
+                                    options: ['int', 'varchar', 'datetime', 'boolean']
+                                },
+                                key: {
+                                    type: 'toggle',
+                                    label: 'Primary Key'
+                                }
+                            }
+                        }
+                    }
+                },
+                groups: {
+                    text: { label: 'Text', index: 1 },
+                    presentation: { label: 'Presentation', index: 2 },
+                    columns: { label: 'Columns', index: 3 }
+                }
+            },
+            'UMLClass': {
+                inputs: {
+                    attrs: {
+                        label: {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Class Name',
+                                group: 'text',
+                                index: 1
+                            },
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Text Color',
+                                group: 'text',
+                                index: 2
+                            }
+                        },
+                        '.attributes': {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Attributes',
+                                group: 'attributes',
+                                index: 1
+                            }
+                        },
+                        '.methods': {
+                            text: {
+                                type: 'content-editable',
+                                label: 'Methods',
+                                group: 'methods',
+                                index: 2
+                            }
+                        },
+                        body: {
+                            fill: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Fill',
+                                group: 'presentation',
+                                index: 1
+                            },
+                            stroke: {
+                                type: 'color-palette',
+                                options: options.colorPalette,
+                                label: 'Body Stroke',
+                                group: 'presentation',
+                                index: 2
+                            }
+                        }
+                    }
+                },
+                groups: {
+                    text: { label: 'Class Name', index: 1 },
+                    attributes: { label: 'Attributes', index: 2 },
+                    methods: { label: 'Methods', index: 3 },
+                    presentation: { label: 'Presentation', index: 4 }
+                }
             }
         };
     };
@@ -7254,21 +8167,10 @@ exports.KeyboardService = KeyboardService;
 
 "use strict";
 
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
 var layout_directed_graph_1 = __webpack_require__(/*! @joint/layout-directed-graph */ "./node_modules/@joint/layout-directed-graph/DirectedGraph.mjs");
-var appShapes = __webpack_require__(/*! ../shapes/app-shapes */ "./src/shapes/app-shapes.ts");
+var appShapes = __webpack_require__(/*! ./app-shapes */ "./src/services/app-shapes.ts");
 var KitchenSinkService = /** @class */ (function () {
     function KitchenSinkService(el, stencilService, toolbarService, inspectorService, haloService, keyboardService) {
         this.el = el;
@@ -7301,17 +8203,35 @@ var KitchenSinkService = /** @class */ (function () {
         });
         this.commandManager = new joint.dia.CommandManager({ graph: graph });
         var paper = this.paper = new joint.dia.Paper({
+            model: graph,
             width: 1000,
             height: 1000,
-            gridSize: 10,
+            gridSize: 20,
             drawGrid: true,
-            model: graph,
-            cellViewNamespace: appShapes,
-            defaultLink: new appShapes.app.Link(),
-            // defaultConnectionPoint: appShapes.app.Link.connectionPoint,
-            interactive: { linkMove: false },
+            // interactive: { linkMove: false },
+            interactive: true,
+            defaultConnector: { name: 'rounded' },
             async: true,
-            sorting: joint.dia.Paper.sorting.APPROX
+            // frozen: true, // añadido
+            sorting: joint.dia.Paper.sorting.APPROX,
+            cellViewNamespace: appShapes,
+            // routerNamespace : { ...joint.routers }, // añadido
+            // defaultRouter: { name: 'customRouter' }, // añadido
+            // anchorNamespace: { ...joint.anchors }, // añadido
+            // defaultAnchor: { name: 'customAnchor' }, // añadido
+            // snapLinks: true, // añadido
+            // linkPinning: false, // añadido
+            // magnetThreshold: 'onleave', // añadido
+            // highlighting: { //añadido
+            //     'conection': {
+            //         name: 'addClass',
+            //         options: {
+            //             className: 'column-connected'
+            //         }
+            //     }
+            // },    
+            defaultLink: new appShapes.Link(),
+            defaultConnectionPoint: appShapes.Link.connectionPoint,
         });
         paper.on('blank:contextmenu', function (evt) {
             _this.renderContextToolbar({ x: evt.clientX, y: evt.clientY });
@@ -7663,21 +8583,10 @@ exports["default"] = KitchenSinkService;
 
 "use strict";
 
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
-2024-09-18
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
-or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.StencilService = void 0;
 var plus_1 = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
-var appShapes = __webpack_require__(/*! ../shapes/app-shapes */ "./src/shapes/app-shapes.ts");
+var appShapes = __webpack_require__(/*! ./app-shapes */ "./src/services/app-shapes.ts");
 var StencilService = /** @class */ (function () {
     function StencilService() {
     }
@@ -7717,299 +8626,299 @@ var StencilService = /** @class */ (function () {
     };
     StencilService.prototype.getStencilGroups = function () {
         return {
-            standard: { index: 1, label: 'Standard shapes' },
-            uml: { index: 2, label: 'UML Diagrams' } // Añade el grupo UML
+            uml: { index: 1, label: 'UML Diagrams' } // Añade el grupo UML
+            // standard: { index: 1, label: 'Standard shapes' },
         };
     };
     StencilService.prototype.getStencilShapes = function () {
         return {
-            standard: [
-                {
-                    type: 'standard.Ellipse',
-                    size: { width: 90, height: 54 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Ellipse',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        label: {
-                            text: 'ellipse',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    }
-                },
-                {
-                    type: 'app.RectangularModel',
-                    size: { width: 90, height: 67.5 },
-                    allowOrthogonalResize: false,
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Rectangle with ports',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            rx: 2,
-                            ry: 2,
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        label: {
-                            text: 'rect',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    },
-                    ports: {
-                        items: [
-                            { group: 'in' },
-                            { group: 'in' },
-                            { group: 'out' }
-                        ]
-                    }
-                },
-                {
-                    type: 'app.CircularModel',
-                    size: { width: 90, height: 54 },
-                    allowOrthogonalResize: false,
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Ellipse with ports',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0',
-                        },
-                        label: {
-                            text: 'ellipse',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    },
-                    ports: {
-                        items: [
-                            { group: 'in' },
-                            { group: 'in' },
-                            { group: 'out' }
-                        ]
-                    }
-                },
-                {
-                    type: 'standard.Polygon',
-                    size: { width: 90, height: 54 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Rhombus',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            points: 'calc(0.5 * w),0 calc(w),calc(0.5 * h) calc(0.5 * w),calc(h) 0,calc(0.5 * h)',
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        label: {
-                            text: 'rhombus',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    }
-                },
-                {
-                    type: 'standard.Cylinder',
-                    size: { width: 90, height: 54 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Cylinder',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        top: {
-                            fill: '#31d0c6',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        label: {
-                            text: 'cylinder',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    }
-                },
-                {
-                    type: 'standard.Image',
-                    size: { width: 90, height: 71 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Image',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        image: {
-                            xlinkHref: 'assets/image-icon1.svg'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        label: {
-                            text: 'image',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            fill: '#c6c7e2'
-                        }
-                    }
-                },
-                {
-                    type: 'standard.EmbeddedImage',
-                    size: { width: 90, height: 54 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Card',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        image: {
-                            xlinkHref: 'assets/image-icon1.svg'
-                        },
-                        label: {
-                            text: 'card',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    }
-                },
-                {
-                    type: 'standard.InscribedImage',
-                    size: { width: 60, height: 60 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Icon',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        border: {
-                            stroke: '#31d0c6',
-                            strokeWidth: 3,
-                            strokeDasharray: '0'
-                        },
-                        background: {
-                            fill: 'transparent'
-                        },
-                        image: {
-                            xlinkHref: 'assets/image-icon1.svg'
-                        },
-                        label: {
-                            text: 'icon',
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0
-                        }
-                    }
-                },
-                {
-                    type: 'standard.HeaderedRectangle',
-                    size: { width: 90, height: 54 },
-                    attrs: {
-                        root: {
-                            dataTooltip: 'Rectangle with header',
-                            dataTooltipPosition: 'left',
-                            dataTooltipPositionSelector: '.joint-stencil'
-                        },
-                        body: {
-                            fill: 'transparent',
-                            stroke: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0'
-                        },
-                        header: {
-                            stroke: '#31d0c6',
-                            fill: '#31d0c6',
-                            strokeWidth: 2,
-                            strokeDasharray: '0',
-                            height: 20
-                        },
-                        bodyText: {
-                            textWrap: {
-                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie.',
-                                width: -10,
-                                height: -20,
-                                ellipsis: true
-                            },
-                            fill: '#c6c7e2',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0,
-                            y: 'calc(h/2 + 10)',
-                        },
-                        headerText: {
-                            text: 'header',
-                            fill: '#f6f6f6',
-                            fontFamily: 'Roboto Condensed',
-                            fontWeight: 'Normal',
-                            fontSize: 11,
-                            strokeWidth: 0,
-                            y: 10
-                        }
-                    }
-                }
-            ],
+            // standard: [
+            //     {
+            //         type: 'standard.Ellipse',
+            //         size: { width: 90, height: 54 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Ellipse',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             label: {
+            //                 text: 'ellipse',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'RectangularModel',
+            //         size: { width: 90, height: 67.5 },
+            //         allowOrthogonalResize: false,
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Rectangle with ports',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 rx: 2,
+            //                 ry: 2,
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             label: {
+            //                 text: 'rect',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         },
+            //         ports: {
+            //             items: [
+            //                 { group: 'in' },
+            //                 { group: 'in' },
+            //                 { group: 'out' }
+            //             ]
+            //         }
+            //     },
+            //     {
+            //         type: 'CircularModel',
+            //         size: { width: 90, height: 54 },
+            //         allowOrthogonalResize: false,
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Ellipse with ports',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0',
+            //             },
+            //             label: {
+            //                 text: 'ellipse',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         },
+            //         ports: {
+            //             items: [
+            //                 { group: 'in' },
+            //                 { group: 'in' },
+            //                 { group: 'out' }
+            //             ]
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.Polygon',
+            //         size: { width: 90, height: 54 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Rhombus',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 points: 'calc(0.5 * w),0 calc(w),calc(0.5 * h) calc(0.5 * w),calc(h) 0,calc(0.5 * h)',
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             label: {
+            //                 text: 'rhombus',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.Cylinder',
+            //         size: { width: 90, height: 54 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Cylinder',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             top: {
+            //                 fill: '#31d0c6',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             label: {
+            //                 text: 'cylinder',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.Image',
+            //         size: { width: 90, height: 71 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Image',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             image: {
+            //                 xlinkHref: 'assets/image-icon1.svg'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             label: {
+            //                 text: 'image',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 fill: '#c6c7e2'
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.EmbeddedImage',
+            //         size: { width: 90, height: 54 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Card',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             image: {
+            //                 xlinkHref: 'assets/image-icon1.svg'
+            //             },
+            //             label: {
+            //                 text: 'card',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.InscribedImage',
+            //         size: { width: 60, height: 60 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Icon',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             border: {
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 3,
+            //                 strokeDasharray: '0'
+            //             },
+            //             background: {
+            //                 fill: 'transparent'
+            //             },
+            //             image: {
+            //                 xlinkHref: 'assets/image-icon1.svg'
+            //             },
+            //             label: {
+            //                 text: 'icon',
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0
+            //             }
+            //         }
+            //     },
+            //     {
+            //         type: 'standard.HeaderedRectangle',
+            //         size: { width: 90, height: 54 },
+            //         attrs: {
+            //             root: {
+            //                 dataTooltip: 'Rectangle with header',
+            //                 dataTooltipPosition: 'left',
+            //                 dataTooltipPositionSelector: '.joint-stencil'
+            //             },
+            //             body: {
+            //                 fill: 'transparent',
+            //                 stroke: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0'
+            //             },
+            //             header: {
+            //                 stroke: '#31d0c6',
+            //                 fill: '#31d0c6',
+            //                 strokeWidth: 2,
+            //                 strokeDasharray: '0',
+            //                 height: 20
+            //             },
+            //             bodyText: {
+            //                 textWrap: {
+            //                     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie.',
+            //                     width: -10,
+            //                     height: -20,
+            //                     ellipsis: true
+            //                 },
+            //                 fill: '#c6c7e2',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0,
+            //                 y: 'calc(h/2 + 10)',
+            //             },
+            //             headerText: {
+            //                 text: 'header',
+            //                 fill: '#f6f6f6',
+            //                 fontFamily: 'Roboto Condensed',
+            //                 fontWeight: 'Normal',
+            //                 fontSize: 11,
+            //                 strokeWidth: 0,
+            //                 y: 10
+            //             }
+            //         }
+            //     }
+            // ],
             uml: [
                 {
-                    type: 'app.Table',
+                    type: 'Table',
                     columns: [{ name: 'id', type: 'int', key: true }],
                     padding: { top: 40, bottom: 10, left: 10, right: 10 },
                     size: { width: 260 },
@@ -8373,676 +9282,6 @@ var ToolbarService = /** @class */ (function () {
     return ToolbarService;
 }());
 exports.ToolbarService = ToolbarService;
-
-
-/***/ }),
-
-/***/ "./src/shapes/app-shapes.ts":
-/*!**********************************!*\
-  !*** ./src/shapes/app-shapes.ts ***!
-  \**********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.app = void 0;
-var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
-var plus_1 = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
-// const cache = new Map();
-var app;
-(function (app) {
-    var Table = /** @class */ (function (_super) {
-        __extends(Table, _super);
-        function Table() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        Table.prototype.defaults = function () {
-            return plus_1.util.defaultsDeep({
-                type: 'app.Table',
-                columns: [],
-                padding: { top: 40, bottom: 10, left: 10, right: 10 },
-                size: { width: 260 },
-                itemMinLabelWidth: 80,
-                itemHeight: 25,
-                itemOffset: 0,
-                itemOverflow: true,
-                attrs: {
-                    root: {
-                        magnet: false
-                    },
-                    body: {
-                        stroke: '#FFF',
-                        fill: '#FFF',
-                        strokeWidth: 1
-                    },
-                    tabColor: {
-                        x: -1,
-                        y: -5,
-                        width: 'calc(w+2)',
-                        height: 5,
-                        stroke: 'none',
-                        fill: '#6C6C6C',
-                        strokeWidth: 1
-                    },
-                    header: {
-                        fill: '#F8FAFC',
-                        stroke: '#F8FAFC',
-                        strokeWidth: 1,
-                    },
-                    headerLabel: {
-                        fill: '#636363',
-                        fontWeight: 'bold',
-                        fontFamily: 'sans-serif',
-                        textWrap: {
-                            ellipsis: true,
-                            height: 30
-                        }
-                    },
-                    itemBodies_0: {
-                        // SVGRect which is an active magnet
-                        // Do not use `true` to prevent CSS effects on hover
-                        magnet: 'item'
-                    },
-                    group_1: {
-                        // let the pointer events propagate to the group_0
-                        // which spans over 2 columns
-                        pointerEvents: 'none'
-                    },
-                    itemLabels: {
-                        fontFamily: 'sans-serif',
-                        fill: '#636363',
-                        pointerEvents: 'none'
-                    },
-                    itemLabels_1: {
-                        fill: '#9C9C9C',
-                        textAnchor: 'end',
-                        x: 'calc(0.5 * w - 10)'
-                    },
-                    itemLabels_keys: {
-                        x: 'calc(0.5 * w - 30)'
-                    },
-                    iconsGroup_1: {
-                        // SVGGroup does not accept `x` attribute
-                        refX: '50%',
-                        refX2: -26
-                    }
-                }
-            }, _super.prototype.defaults);
-        };
-        Table.prototype.preinitialize = function () {
-            this.markup = [{
-                    tagName: 'rect',
-                    selector: 'body'
-                }, {
-                    tagName: 'rect',
-                    selector: 'header'
-                }, {
-                    tagName: 'rect',
-                    selector: 'tabColor'
-                }, {
-                    tagName: 'text',
-                    selector: 'headerLabel'
-                }];
-        };
-        Table.prototype.initialize = function () {
-            var _this = this;
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
-            }
-            _super.prototype.initialize.apply(this, args);
-            this.on('change', function () { return _this.onColumnsChange(); });
-            this._setColumns(this.get('columns'));
-        };
-        Table.prototype.onColumnsChange = function () {
-            if (this.hasChanged('columns')) {
-                this._setColumns(this.get('columns'));
-            }
-        };
-        Table.prototype.setName = function (name, opt) {
-            return this.attr(['headerLabel', 'text'], name, opt);
-        };
-        Table.prototype.getName = function () {
-            return this.attr(['headerLabel', 'text']);
-        };
-        Table.prototype.setTabColor = function (color) {
-            return this.attr(['tabColor', 'fill'], color);
-        };
-        Table.prototype.getTabColor = function () {
-            return this.attr(['tabColor', 'fill']);
-        };
-        Table.prototype.setColumns = function (data) {
-            this.set('columns', data);
-            return this;
-        };
-        Table.prototype.toJSON = function () {
-            var json = _super.prototype.toJSON.call(this);
-            // keeping only the `columns` attribute
-            delete json.items;
-            return json;
-        };
-        Table.prototype._setColumns = function (data) {
-            if (data === void 0) { data = []; }
-            var names = [];
-            var values = [];
-            data.forEach(function (item, i) {
-                if (!item.name)
-                    return;
-                names.push({
-                    id: item.name,
-                    label: item.name,
-                    span: 2
-                });
-                var value = {
-                    id: "".concat(item.type, "_").concat(i),
-                    label: item.type
-                };
-                if (item.key) {
-                    Object.assign(value, {
-                        group: 'keys',
-                        icon: 'assets/key.svg'
-                    });
-                }
-                values.push(value);
-            });
-            this.set('items', [names, values]);
-            this.removeInvalidLinks();
-            return this;
-        };
-        return Table;
-    }(plus_1.shapes.standard.HeaderedRecord));
-    app.Table = Table;
-    var Link = /** @class */ (function (_super) {
-        __extends(Link, _super);
-        function Link() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.markup = [{
-                    tagName: 'path',
-                    selector: 'wrapper',
-                    attributes: {
-                        'fill': 'none',
-                        'stroke': 'transparent'
-                    }
-                }, {
-                    tagName: 'path',
-                    selector: 'line',
-                    attributes: {
-                        'fill': 'none'
-                    }
-                }];
-            return _this;
-        }
-        Link.prototype.defaults = function () {
-            return __assign(__assign({}, _super.prototype.defaults), { type: 'app.Link', z: -1, attrs: {
-                    wrapper: {
-                        connection: true,
-                        strokeWidth: 10
-                    },
-                    line: {
-                        connection: true,
-                        stroke: '#A0A0A0',
-                        strokeWidth: 2
-                    }
-                } });
-        };
-        return Link;
-    }(plus_1.dia.Link));
-    app.Link = Link;
-    var UMLClass = /** @class */ (function (_super) {
-        __extends(UMLClass, _super);
-        function UMLClass() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.portLabelMarkup = [{
-                    tagName: 'text',
-                    selector: 'portLabel'
-                }];
-            return _this;
-        }
-        UMLClass.prototype.defaults = function () {
-            return joint.util.defaultsDeep({
-                type: 'app.UMLClass',
-                allowOrthogonalResize: false,
-                size: { width: 100, height: 70 },
-                attrs: {
-                    root: {
-                        dataTooltip: 'Class with ports',
-                        dataTooltipPosition: 'left',
-                        dataTooltipPositionSelector: '.joint-stencil'
-                    },
-                    body: {
-                        fill: 'transparent',
-                        stroke: '#31d0c6',
-                        strokeWidth: 2,
-                        strokeDasharray: '0',
-                    },
-                    label: {
-                        text: 'ClassName',
-                        fill: '#c6c7e2',
-                        fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 11,
-                        strokeWidth: 0
-                    },
-                    '.attributes': {
-                        text: '+ attribute1: String\n+ attribute2: Integer',
-                        fill: '#c6c7e2',
-                        fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 10,
-                        strokeWidth: 0
-                    },
-                    '.methods': {
-                        text: '+ method1(): void\n+ method2(param: String): String',
-                        fill: '#c6c7e2',
-                        fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 10,
-                        strokeWidth: 0
-                    }
-                },
-                ports: {
-                    items: [
-                        { group: 'in' },
-                        { group: 'in' },
-                        { group: 'out' }
-                    ],
-                    groups: {
-                        'in': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 5,
-                                        'fill': '#61549c'
-                                    }
-                                }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true
-                                }
-                            },
-                            position: {
-                                name: 'top',
-                            }
-                        },
-                        'out': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 5,
-                                        'fill': '#31d0c6'
-                                    }
-                                }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true
-                                }
-                            },
-                            position: {
-                                name: 'bottom',
-                            }
-                        }
-                    }
-                }
-            }, joint.shapes.standard.Rectangle.prototype.defaults);
-        };
-        return UMLClass;
-    }(joint.shapes.standard.Rectangle));
-    app.UMLClass = UMLClass;
-    var CircularModel = /** @class */ (function (_super) {
-        __extends(CircularModel, _super);
-        function CircularModel() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.portLabelMarkup = [{
-                    tagName: 'text',
-                    selector: 'portLabel'
-                }];
-            return _this;
-        }
-        CircularModel.prototype.defaults = function () {
-            return joint.util.defaultsDeep({
-                type: 'app.CircularModel',
-                attrs: {
-                    root: {
-                        magnet: false
-                    }
-                },
-                ports: {
-                    groups: {
-                        'in': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 10
-                                    }
-                                }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'ellipse',
-                                args: {
-                                    startAngle: 0,
-                                    step: 30
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'radial',
-                                    args: null
-                                }
-                            }
-                        },
-                        'out': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 10
-                                    }
-                                }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'ellipse',
-                                args: {
-                                    startAngle: 180,
-                                    step: 30
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'radial',
-                                    args: null
-                                }
-                            }
-                        }
-                    }
-                }
-            }, joint.shapes.standard.Ellipse.prototype.defaults);
-        };
-        return CircularModel;
-    }(joint.shapes.standard.Ellipse));
-    app.CircularModel = CircularModel;
-    var RectangularModel = /** @class */ (function (_super) {
-        __extends(RectangularModel, _super);
-        function RectangularModel() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.portLabelMarkup = [{
-                    tagName: 'text',
-                    selector: 'portLabel'
-                }];
-            return _this;
-        }
-        RectangularModel.prototype.defaults = function () {
-            return joint.util.defaultsDeep({
-                type: 'app.RectangularModel',
-                attrs: {
-                    root: {
-                        magnet: false
-                    }
-                },
-                ports: {
-                    groups: {
-                        'in': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 10
-                                    }
-                                }],
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            position: {
-                                name: 'left'
-                            },
-                            label: {
-                                position: {
-                                    name: 'left',
-                                    args: {
-                                        y: 0
-                                    }
-                                }
-                            }
-                        },
-                        'out': {
-                            markup: [{
-                                    tagName: 'circle',
-                                    selector: 'portBody',
-                                    attributes: {
-                                        'r': 10
-                                    }
-                                }],
-                            position: {
-                                name: 'right'
-                            },
-                            attrs: {
-                                portBody: {
-                                    magnet: true,
-                                    fill: '#61549c',
-                                    strokeWidth: 0
-                                },
-                                portLabel: {
-                                    fontSize: 11,
-                                    fill: '#61549c',
-                                    fontWeight: 800
-                                }
-                            },
-                            label: {
-                                position: {
-                                    name: 'right',
-                                    args: {
-                                        y: 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }, joint.shapes.standard.Rectangle.prototype.defaults);
-        };
-        return RectangularModel;
-    }(joint.shapes.standard.Rectangle));
-    app.RectangularModel = RectangularModel;
-    // export class Link extends joint.shapes.standard.Link {
-    //     defaultLabel = {
-    //         attrs: {
-    //             rect: {
-    //                 fill: '#ffffff',
-    //                 stroke: '#8f8f8f',
-    //                 strokeWidth: 1,
-    //                 width: 'calc(w + 10)',
-    //                 height: 'calc(h + 10)',
-    //                 x: 'calc(x - 5)',
-    //                 y: 'calc(y - 5)'
-    //             }
-    //         }
-    //     };
-    //     private getDataWidthCached = function(d: string){
-    //         if (cache.has(d)) {
-    //             return cache.get(d);
-    //         } else {
-    //             const bbox = (new joint.g.Path(d)).bbox();
-    //             cache.set(d, bbox ? bbox.width : 0);
-    //             return cache.get(d);
-    //         }
-    //     };
-    //     static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
-    //         const link = linkView.model;
-    //         const markerWidth = (link.get('type') === 'app.Link') ? link.getMarkerWidth(type) : 0;
-    //         const opt: any = { offset: markerWidth, stroke: true };
-    //         // connection point for UML shapes lies on the root group containing all the shapes components
-    //         const modelType = view.model.get('type');
-    //         // taking the border stroke-width into account
-    //         if (modelType === 'standard.InscribedImage') { opt.selector = 'border'; }
-    //         return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
-    //     }
-    //     defaults() {
-    //         return joint.util.defaultsDeep({
-    //             type: 'app.Link',
-    //             router: {
-    //                 name: 'normal'
-    //             },
-    //             connector: {
-    //                 name: 'rounded'
-    //             },
-    //             labels: [],
-    //             attrs: {
-    //                 line: {
-    //                     stroke: '#8f8f8f',
-    //                     strokeDasharray: '0',
-    //                     strokeWidth: 2,
-    //                     fill: 'none',
-    //                     sourceMarker: {
-    //                         type: 'path',
-    //                         d: 'M 0 0 0 0',
-    //                         stroke: 'none'
-    //                     },
-    //                     targetMarker: {
-    //                         type: 'path',
-    //                         d: 'M 0 -5 -10 0 0 5 z',
-    //                         stroke: 'none'
-    //                     }
-    //                 }
-    //             }
-    //         }, joint.shapes.standard.Link.prototype.defaults);
-    //     }
-    //     getMarkerWidth(type: any) {
-    //         const d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
-    //         return this.getDataWidth(d);
-    //     }
-    //     getDataWidth(d: any) {
-    //         return this.getDataWidthCached(d);
-    //     }
-    // }
-    var TableView = plus_1.shapes.standard.RecordView;
-    Object.assign(plus_1.shapes, {
-        app: {
-            Table: Table,
-            TableView: TableView,
-            Link: Link
-        }
-    });
-})(app || (exports.app = app = {}));
-exports.NavigatorElementView = joint.dia.ElementView.extend({
-    body: null,
-    markup: [{
-            tagName: 'rect',
-            selector: 'body',
-            attributes: {
-                'fill': '#31d0c6'
-            }
-        }],
-    initFlag: ['RENDER', 'UPDATE', 'TRANSFORM'],
-    presentationAttributes: {
-        size: ['UPDATE'],
-        position: ['TRANSFORM'],
-        angle: ['TRANSFORM']
-    },
-    confirmUpdate: function (flags) {
-        if (this.hasFlag(flags, 'RENDER')) {
-            this.render();
-        }
-        if (this.hasFlag(flags, 'UPDATE')) {
-            this.update();
-        }
-        if (this.hasFlag(flags, 'TRANSFORM')) {
-            this.updateTransformation();
-        }
-    },
-    render: function () {
-        var _a = joint.util.parseDOMJSON(this.markup), fragment = _a.fragment, body = _a.selectors.body;
-        this.body = body;
-        this.el.appendChild(fragment);
-    },
-    update: function () {
-        var _a = this, model = _a.model, body = _a.body;
-        var _b = model.size(), width = _b.width, height = _b.height;
-        body.setAttribute('width', width);
-        body.setAttribute('height', height);
-    }
-});
-exports.NavigatorLinkView = joint.dia.LinkView.extend({
-    defaultTheme: null,
-    initialize: function (options) {
-        joint.mvc.View.prototype.initialize.call(this, options);
-    },
-    onMount: joint.util.noop,
-    render: joint.util.noop,
-    update: joint.util.noop
-});
-// re-export build-in shapes from rappid
-exports.standard = joint.shapes.standard;
 
 
 /***/ }),
@@ -49721,12 +49960,13 @@ var inspector_service_1 = __webpack_require__(/*! ./src/services/inspector-servi
 var halo_service_1 = __webpack_require__(/*! ./src/services/halo-service */ "./src/services/halo-service.ts");
 var keyboard_service_1 = __webpack_require__(/*! ./src/services/keyboard-service */ "./src/services/keyboard-service.ts");
 var theme_picker_1 = __webpack_require__(/*! ./src/components/theme-picker */ "./src/components/theme-picker.ts");
-var sample_graphs_1 = __webpack_require__(/*! ./src/config/sample-graphs */ "./src/config/sample-graphs.ts");
+// import { sampleGraphs } from './src/config/sample-graphs';
+// import { init } from './src/services/app';
+// init()
 var app = new kitchensink_service_1.default(document.getElementById('app'), new stencil_service_1.StencilService(), new toolbar_service_1.ToolbarService(), new inspector_service_1.InspectorService(), new halo_service_1.HaloService(), new keyboard_service_1.KeyboardService());
 app.startRappid();
 var themePicker = new theme_picker_1.ThemePicker({ mainView: app });
 document.body.appendChild(themePicker.render().el);
-app.graph.fromJSON(JSON.parse(sample_graphs_1.sampleGraphs.emergencyProcedure));
 window['joint'] = joint;
 window['app'] = app;
 

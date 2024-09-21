@@ -1,16 +1,3 @@
-/*! JointJS+ v4.0.1 - HTML5 Diagramming Framework - TRIAL VERSION
-
-Copyright (c) 2024 client IO
-
- 2024-09-18 
-
-
-This Source Code Form is subject to the terms of the JointJS+ Trial License
-, v. 2.0. If a copy of the JointJS+ License was not distributed with this
-file, You can obtain one at https://www.jointjs.com/license
- or from the JointJS+ archive as was distributed by client IO. See the LICENSE file.*/
-
-
 import * as joint from '@joint/plus';
 import { DirectedGraph } from '@joint/layout-directed-graph';
 import { StencilService } from './stencil-service';
@@ -67,7 +54,7 @@ class KitchenSinkService {
 
         joint.setTheme('modern');
 
-        // this.initializePaper();
+        this.initializePaper();
         this.initializeStencil();
         this.initializeSelection();
         this.initializeToolsAndInspector();
@@ -77,61 +64,79 @@ class KitchenSinkService {
         this.initializeTooltips();
     }
 
-    // initializePaper() {
+    initializePaper() {
 
-    //     const graph = this.graph = new joint.dia.Graph({}, {
-    //         cellNamespace: appShapes
-    //     });
+        const graph = this.graph = new joint.dia.Graph({}, {
+            cellNamespace: appShapes
+        });
 
-    //     this.commandManager = new joint.dia.CommandManager({ graph: graph });
+        this.commandManager = new joint.dia.CommandManager({ graph: graph });
 
-    //     const paper = this.paper = new joint.dia.Paper({
-    //         width: 1000,
-    //         height: 1000,
-    //         gridSize: 10,
-    //         drawGrid: true,
-    //         model: graph,
-    //         cellViewNamespace: appShapes,
-    //         defaultLink: <joint.dia.Link>new appShapes.app.Link(),
-    //         // defaultConnectionPoint: appShapes.app.Link.connectionPoint,
-    //         interactive: { linkMove: false },
-    //         async: true,
-    //         sorting: joint.dia.Paper.sorting.APPROX
-    //     });
+        const paper = this.paper = new joint.dia.Paper({
+            model: graph,
+            width: 1000,
+            height: 1000,
+            gridSize: 20,
+            drawGrid: true,
+            // interactive: { linkMove: false },
+            interactive: true, // añadido
+            defaultConnector: { name: 'rounded' }, // añadido
+            async: true,
+            // frozen: true, // añadido
+            sorting: joint.dia.Paper.sorting.APPROX,
+            cellViewNamespace: appShapes,
+            // routerNamespace : { ...joint.routers }, // añadido
+            // defaultRouter: { name: 'customRouter' }, // añadido
+            // anchorNamespace: { ...joint.anchors }, // añadido
+            // defaultAnchor: { name: 'customAnchor' }, // añadido
+            // snapLinks: true, // añadido
+            // linkPinning: false, // añadido
+            // magnetThreshold: 'onleave', // añadido
+            // highlighting: { //añadido
+            //     'conection': {
+            //         name: 'addClass',
+            //         options: {
+            //             className: 'column-connected'
+            //         }
+            //     }
+            // },    
+            defaultLink: <joint.dia.Link>new appShapes.Link(),
+            defaultConnectionPoint: appShapes.Link.connectionPoint,
+        }); 
 
-    //     paper.on('blank:contextmenu', (evt) => {
-    //         this.renderContextToolbar({ x: evt.clientX, y: evt.clientY });
-    //     });
+        paper.on('blank:contextmenu', (evt) => {
+            this.renderContextToolbar({ x: evt.clientX, y: evt.clientY });
+        });
 
-    //     paper.on('cell:contextmenu', (cellView, evt) => {
-    //         this.renderContextToolbar({ x: evt.clientX, y: evt.clientY }, [cellView.model]);
-    //     });
+        paper.on('cell:contextmenu', (cellView, evt) => {
+            this.renderContextToolbar({ x: evt.clientX, y: evt.clientY }, [cellView.model]);
+        });
 
-    //     this.snaplines = new joint.ui.Snaplines({ paper: paper });
+        this.snaplines = new joint.ui.Snaplines({ paper: paper });
 
-    //     const paperScroller = this.paperScroller = new joint.ui.PaperScroller({
-    //         paper,
-    //         autoResizePaper: true,
-    //         scrollWhileDragging: true,
-    //         cursor: 'grab'
-    //     });
+        const paperScroller = this.paperScroller = new joint.ui.PaperScroller({
+            paper,
+            autoResizePaper: true,
+            scrollWhileDragging: true,
+            cursor: 'grab'
+        });
 
-    //     this.renderPlugin('.paper-container', paperScroller);
-    //     paperScroller.render().center();
+        this.renderPlugin('.paper-container', paperScroller);
+        paperScroller.render().center();
 
-    //     paper.on('paper:pan', (evt, tx, ty) => {
-    //         evt.preventDefault();
-    //         paperScroller.el.scrollLeft += tx;
-    //         paperScroller.el.scrollTop += ty;
-    //     });
+        paper.on('paper:pan', (evt, tx, ty) => {
+            evt.preventDefault();
+            paperScroller.el.scrollLeft += tx;
+            paperScroller.el.scrollTop += ty;
+        });
 
-    //     paper.on('paper:pinch', (_evt, ox, oy, scale) => {
-    //         // the default is already prevented
-    //         const zoom = paperScroller.zoom();
-    //         paperScroller.zoom(zoom * scale, { min: 0.2, max: 5, ox, oy, absolute: true });
-    //     });
+        paper.on('paper:pinch', (_evt, ox, oy, scale) => {
+            // the default is already prevented
+            const zoom = paperScroller.zoom();
+            paperScroller.zoom(zoom * scale, { min: 0.2, max: 5, ox, oy, absolute: true });
+        });
 
-    // }
+    }
 
     initializeStencil() {
 
