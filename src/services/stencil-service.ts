@@ -408,7 +408,7 @@
                         }
                     },
                     {
-                        type: 'Generalization',
+                        type: 'Herencia',
                         attrs: {
                             line: {
                                 stroke: '#000000',
@@ -419,64 +419,93 @@
                                     'stroke': '#000000'
                                 }
                             }
+                        },
+                        addToGraph: true
+                    },
+                    {
+                        type: 'LinkStencilHerencia',  // Dummy representation for links
+                        attrs: {
+                            body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                            label: { text: 'Herencia', fill: '#000000', fontSize: 10 }
                         }
                     },
                     {
-                        type: 'Association',
+                        type: 'LinkStencilAgregacion',  // Dummy representation for links
                         attrs: {
-                            line: {
-                                stroke: '#000000',
-                                targetMarker: {
-                                    'type': 'path',
-                                    'd': 'M 10 -5 0 0 10 5 z',
-                                    'fill': '#000000',
-                                    'stroke': '#000000'
-                                }
-                            }
+                            body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                            label: { text: 'Agregacion', fill: '#000000', fontSize: 10 }
                         }
                     },
                     {
-                        type: 'Aggregation',
+                        type: 'LinkStencilComposicion',  // Dummy representation for links
                         attrs: {
-                            line: {
-                                stroke: '#000000',
-                                targetMarker: {
-                                    'type': 'path',
-                                    'd': 'M 10 -5 0 0 10 5 z',
-                                    'fill': '#000000',
-                                    'stroke': '#000000'
-                                }
-                            }
+                            body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                            label: { text: 'Composicion', fill: '#000000', fontSize: 10 }
                         }
                     },
                     {
-                        type: 'Composition',
+                        type: 'LinkStencilDependencia',  // Dummy representation for links
                         attrs: {
-                            line: {
-                                stroke: '#000000',
-                                targetMarker: {
-                                    'type': 'path',
-                                    'd': 'M 10 -5 0 0 10 5 z',
-                                    'fill': '#000000',
-                                    'stroke': '#000000'
-                                }
-                            }
+                            body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                            label: { text: 'Dependencia', fill: '#000000', fontSize: 10 }
                         }
                     },
-                    {
-                        type: 'Dependency',
-                        attrs: {
-                            line: {
-                                stroke: '#000000',
-                                targetMarker: {
-                                    'type': 'path',
-                                    'd': 'M 10 -5 0 0 10 5 z',
-                                    'fill': '#000000',
-                                    'stroke': '#000000'
-                                }
-                            }
-                        }
-                    },
+                    // {
+                    //     type: 'Association',
+                    //     attrs: {
+                    //         line: {
+                    //             stroke: '#000000',
+                    //             targetMarker: {
+                    //                 'type': 'path',
+                    //                 'd': 'M 10 -5 0 0 10 5 z',
+                    //                 'fill': '#000000',
+                    //                 'stroke': '#000000'
+                    //             }
+                    //         }
+                    //     }
+                    // },
+                    // {
+                    //     type: 'Agregacion',
+                    //     attrs: {
+                    //         line: {
+                    //             stroke: '#000000',
+                    //             targetMarker: {
+                    //                 'type': 'path',
+                    //                 'd': 'M 10 -5 0 0 10 5 z',
+                    //                 'fill': '#000000',
+                    //                 'stroke': '#000000'
+                    //             }
+                    //         }
+                    //     }
+                    // },
+                    // {
+                    //     type: 'Composition',
+                    //     attrs: {
+                    //         line: {
+                    //             stroke: '#000000',
+                    //             targetMarker: {
+                    //                 'type': 'path',
+                    //                 'd': 'M 10 -5 0 0 10 5 z',
+                    //                 'fill': '#000000',
+                    //                 'stroke': '#000000'
+                    //             }
+                    //         }
+                    //     }
+                    // },
+                    // {
+                    //     type: 'Dependency',
+                    //     attrs: {
+                    //         line: {
+                    //             stroke: '#000000',
+                    //             targetMarker: {
+                    //                 'type': 'path',
+                    //                 'd': 'M 10 -5 0 0 10 5 z',
+                    //                 'fill': '#000000',
+                    //                 'stroke': '#000000'
+                    //             }
+                    //         }
+                    //     }
+                    // },
                     
                 ]
             };

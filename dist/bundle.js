@@ -1564,7 +1564,7 @@ module.exports = resolveConflicts;
  * Returns:
  *
  *    A new list of entries of the form {vs, i, barycenter, weight}. The list
- *    `vs` may either be a singleton or it may be an aggregation of nodes
+ *    `vs` may either be a singleton or it may be an Agregacion of nodes
  *    ordered such that they do not violate constraints from the constraint
  *    graph. The property `i` is the lowest original index of any of the
  *    elements in `vs`.
@@ -2914,7 +2914,7 @@ function addDummyNode(g, type, attrs, name) {
 }
 
 /*
- * Returns a new graph with only simple edges. Handles aggregation of data
+ * Returns a new graph with only simple edges. Handles Agregacion of data
  * associated with multi-edges.
  */
 function simplify(g) {
@@ -5316,7 +5316,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.Association = exports.Dependency = exports.Composition = exports.Aggregation = exports.Generalization = exports.Link = exports.UMLClass = exports.Table = void 0;
+exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.Association = exports.Dependency = exports.Composition = exports.Agregacion = exports.Herencia = exports.Link = exports.UMLClass = exports.Table = void 0;
 var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
 var plus_1 = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
 var cache = new Map();
@@ -5649,14 +5649,14 @@ var Link = /** @class */ (function (_super) {
     return Link;
 }(plus_1.dia.Link));
 exports.Link = Link;
-var Generalization = /** @class */ (function (_super) {
-    __extends(Generalization, _super);
-    function Generalization() {
+var Herencia = /** @class */ (function (_super) {
+    __extends(Herencia, _super);
+    function Herencia() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Generalization.prototype.defaults = function () {
+    Herencia.prototype.defaults = function () {
         return joint.util.defaultsDeep({
-            type: 'Generalization',
+            type: 'Herencia',
             attrs: {
                 line: {
                     stroke: '#000000',
@@ -5671,17 +5671,17 @@ var Generalization = /** @class */ (function (_super) {
             }
         }, plus_1.dia.Link.prototype.defaults);
     };
-    return Generalization;
+    return Herencia;
 }(plus_1.dia.Link));
-exports.Generalization = Generalization;
-var Aggregation = /** @class */ (function (_super) {
-    __extends(Aggregation, _super);
-    function Aggregation() {
+exports.Herencia = Herencia;
+var Agregacion = /** @class */ (function (_super) {
+    __extends(Agregacion, _super);
+    function Agregacion() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Aggregation.prototype.defaults = function () {
+    Agregacion.prototype.defaults = function () {
         return joint.util.defaultsDeep({
-            type: 'Aggregation',
+            type: 'Agregacion',
             attrs: {
                 line: {
                     stroke: '#000000',
@@ -5696,9 +5696,9 @@ var Aggregation = /** @class */ (function (_super) {
             }
         }, plus_1.dia.Link.prototype.defaults);
     };
-    return Aggregation;
+    return Agregacion;
 }(plus_1.dia.Link));
-exports.Aggregation = Aggregation;
+exports.Agregacion = Agregacion;
 var Composition = /** @class */ (function (_super) {
     __extends(Composition, _super);
     function Composition() {
@@ -6021,7 +6021,7 @@ Object.assign(plus_1.shapes, {
         Table: Table,
         TableView: TableView,
         Link: Link,
-        Aggregation: Aggregation,
+        Agregacion: Agregacion,
         Association: Association,
         Composition: Composition,
         Dependency: Dependency,

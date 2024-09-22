@@ -147,6 +147,63 @@ class KitchenSinkService {
         stencilService.setShapes();
 
         stencilService.stencil.on('element:drop', (elementView: joint.dia.ElementView) => {
+            
+            const model = elementView.model;
+            console.log(model);
+            console.log(model.get('type'));
+            switch (model.get('type')) {
+                case 'LinkStencilHerencia':
+                    const linkH = new appShapes.Herencia({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+        
+                    // Añadir el enlace al gráfico
+                    this.graph.addCell(linkH);
+        
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilAgregacion':
+                    const linkA = new appShapes.Agregacion({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+        
+                    // Añadir el enlace al gráfico
+                    this.graph.addCell(linkA);
+        
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilComposicion':
+                    const linkC = new appShapes.Composicion({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+        
+                    // Añadir el enlace al gráfico
+                    this.graph.addCell(linkC);
+        
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilDependencia':
+                    const linkD = new appShapes.Dependencia({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+        
+                    // Añadir el enlace al gráfico
+                    this.graph.addCell(linkD);
+        
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+            
+                default:
+                    break;
+            }
             this.selection.collection.reset([elementView.model]);
         });
     }
@@ -384,7 +441,7 @@ class KitchenSinkService {
     initializeNavigator() {
 
         const navigator = this.navigator = new joint.ui.Navigator({
-            width: 240,
+            width: 300,
             height: 115,
             paperScroller: this.paperScroller,
             zoom: false,
