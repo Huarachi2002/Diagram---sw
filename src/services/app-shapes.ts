@@ -112,22 +112,21 @@ const cache = new Map();
     
         initialize(...args: any[]) {
             super.initialize(...args);
-            this.on('change', () => this.onColumnsChange());
-            this._setColumns(this.get('columns'));
-            this._setMethods(this.get('methods'));
+            this.on('change', () => this.onColumnsAndMethodsChange());
+            this._setColumnsAndMethods(this.get('columns'), this.get('methods'));
         }
-    
-        onColumnsChange() {
-            if (this.hasChanged('columns')) {
-                this._setColumns(this.get('columns'));
+        
+        setColumns(columns: Array<ColumnData>) {
+            this.set('columns', columns);
+            return this;
+        }
+        
+        onColumnsAndMethodsChange() {
+            if (this.hasChanged('columns') || this.hasChanged('methods')) {
+                this._setColumnsAndMethods(this.get('columns'), this.get('methods'));
             }
         }
-
-        onMethodChange() {
-            if(this.hasChanged('methods')) {
-                this._setColumns(this.get('methods'));
-            }   
-        }
+        
     
         setName(name: string, opt?: object) {
             return this.attr(['headerLabel', 'text'], name, opt);
@@ -144,17 +143,7 @@ const cache = new Map();
         getTabColor(): string {
             return this.attr(['tabColor', 'fill']);
         }
-    
-        setColumns(data: Array<ColumnData>) {
-            this.set('columns', data);
-            return this;
-        }
 
-        setMethod(data: Array<ColumnData>) {
-            this.set('methods', data);
-            return this;
-        }
-    
         toJSON() {
             const json = super.toJSON();
             // keeping only the `columns` attribute
@@ -162,20 +151,22 @@ const cache = new Map();
             return json;
         }
     
-        protected _setColumns(data: Array<ColumnData> = []) {
-            const names: Array<object> = [];
-            const values: Array<object> = [];
-    
-            data.forEach((item, i) => {
-    
+        protected _setColumnsAndMethods(columns: Array<ColumnData> = [], methods: Array<{ name: string, returnType: string }> = []) {
+            const columnNames: Array<object> = [];
+            const columnValues: Array<object> = [];
+            const methodNames: Array<object> = [];
+            
+            columns.forEach((item, i) => {
                 if (!item.name) return;
-    
-                names.push({
-                    id: item.name,
+        
+                const columnId = `column_${i}`;
+        
+                columnNames.push({
+                    id: columnId,
                     label: item.name,
                     span: 2
                 });
-    
+        
                 const value = {
                     id: `${item.type}_${i}`,
                     label: item.type
@@ -186,39 +177,24 @@ const cache = new Map();
                         icon: 'assets/key.svg'
                     });
                 }
-                values.push(value);
+                columnValues.push(value);
             });
-    
-            this.set('items', [names, values]);
-            this.removeInvalidLinks();
-    
-            return this;
-        }
-
-        protected _setMethods(data: Array<ColumnData> = []) {
-            const names: Array<object> = [];
-            const values: Array<object> = [];
-    
-            data.forEach((item, i) => {
-                if (!item.name) return;
-                names.push({
-                    id: item.name,
-                    label: item.name,
+        
+            methods.forEach((method, i) => {
+                const methodId = `method_${i}`;
+                methodNames.push({
+                    id: methodId,
+                    label: `${method.name}(): ${method.returnType}`,
                     span: 2
                 });
-    
-                const value = {
-                    id: `${item.type}_${i}`,
-                    label: item.type
-                };
-                values.push(value);
             });
-    
-            this.set('items', [names, values]);
+        
+            this.set('items', [columnNames, columnValues, methodNames]);
             this.removeInvalidLinks();
-    
+        
             return this;
         }
+        
     }
 
     export class UMLClass extends joint.shapes.standard.Rectangle {
@@ -776,306 +752,6 @@ const cache = new Map();
             }
         };
     }
-    
-    // export class Dependency extends dia.Link {
-    //     defaults() {
-    //         return joint.util.defaultsDeep({
-    //             type: 'Dependency',
-    //             attrs: {
-    //                 line: {
-    //                     stroke: '#000000',
-    //                     strokeDasharray: '5, 2',  // Línea punteada para dependencia
-    //                     strokeWidth: 2,
-    //                     targetMarker: {
-    //                         type: 'path',
-    //                         d: 'M 10 0 L 0 -5 L 0 5 Z',  // Flecha abierta para dependencia
-    //                         fill: 'none',
-    //                         stroke: '#000000',
-    //                     }
-    //                 }
-    //             }
-    //         }, dia.Link.prototype.defaults);
-    //     }
-    // }
-    
-    // export class Association extends dia.Link {
-    //     defaults() {
-    //         return joint.util.defaultsDeep({
-    //             type: 'Association',
-    //             attrs: {
-    //                 line: {
-    //                     stroke: '#000000',
-    //                     strokeWidth: 2,
-    //                     targetMarker: {
-    //                         type: 'none'  // Línea simple para asociación
-    //                     }
-    //                 }
-    //             }
-    //         }, dia.Link.prototype.defaults);
-    //     }
-    // }
-    
-
-
-
-
-    // export class CircularModel extends joint.shapes.standard.Ellipse {
-
-    //     portLabelMarkup = [{
-    //         tagName: 'text',
-    //         selector: 'portLabel'
-    //     }];
-
-    //     defaults() {
-
-    //         return joint.util.defaultsDeep({
-    //             type: 'CircularModel',
-    //             attrs: {
-    //                 root: {
-    //                     magnet: false
-    //                 }
-    //             },
-    //             ports: {
-    //                 groups: {
-    //                     'in': {
-    //                         markup: [{
-    //                             tagName: 'circle',
-    //                             selector: 'portBody',
-    //                             attributes: {
-    //                                 'r': 10
-    //                             }
-    //                         }],
-    //                         attrs: {
-    //                             portBody: {
-    //                                 magnet: true,
-    //                                 fill: '#61549c',
-    //                                 strokeWidth: 0
-    //                             },
-    //                             portLabel: {
-    //                                 fontSize: 11,
-    //                                 fill: '#61549c',
-    //                                 fontWeight: 800
-    //                             }
-    //                         },
-    //                         position: {
-    //                             name: 'ellipse',
-    //                             args: {
-    //                                 startAngle: 0,
-    //                                 step: 30
-    //                             }
-    //                         },
-    //                         label: {
-    //                             position: {
-    //                                 name: 'radial',
-    //                                 args: null
-    //                             }
-    //                         }
-    //                     },
-    //                     'out': {
-    //                         markup: [{
-    //                             tagName: 'circle',
-    //                             selector: 'portBody',
-    //                             attributes: {
-    //                                 'r': 10
-    //                             }
-    //                         }],
-    //                         attrs: {
-    //                             portBody: {
-    //                                 magnet: true,
-    //                                 fill: '#61549c',
-    //                                 strokeWidth: 0
-    //                             },
-    //                             portLabel: {
-    //                                 fontSize: 11,
-    //                                 fill: '#61549c',
-    //                                 fontWeight: 800
-    //                             }
-    //                         },
-    //                         position: {
-    //                             name: 'ellipse',
-    //                             args: {
-    //                                 startAngle: 180,
-    //                                 step: 30
-    //                             }
-    //                         },
-    //                         label: {
-    //                             position: {
-    //                                 name: 'radial',
-    //                                 args: null
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }, joint.shapes.standard.Ellipse.prototype.defaults);
-    //     }
-    // }
-
-    // export class RectangularModel extends joint.shapes.standard.Rectangle {
-
-    //     portLabelMarkup = [{
-    //         tagName: 'text',
-    //         selector: 'portLabel'
-    //     }];
-
-    //     defaults() {
-
-    //         return joint.util.defaultsDeep({
-    //             type: 'RectangularModel',
-    //             attrs: {
-    //                 root: { 
-    //                     magnet: false
-    //                 }
-    //             },
-    //             ports: {
-    //                 groups: {
-    //                     'in': {
-    //                         markup: [{
-    //                             tagName: 'circle',
-    //                             selector: 'portBody',
-    //                             attributes: {
-    //                                 'r': 10
-    //                             }
-    //                         }],
-    //                         attrs: {
-    //                             portBody: {
-    //                                 magnet: true,
-    //                                 fill: '#61549c',
-    //                                 strokeWidth: 0
-    //                             },
-    //                             portLabel: {
-    //                                 fontSize: 11,
-    //                                 fill: '#61549c',
-    //                                 fontWeight: 800
-    //                             }
-    //                         },
-    //                         position: {
-    //                             name: 'left'
-    //                         },
-    //                         label: {
-    //                             position: {
-    //                                 name: 'left',
-    //                                 args: {
-    //                                     y: 0
-    //                                 }
-    //                             }
-    //                         }
-    //                     },
-    //                     'out': {
-    //                         markup: [{
-    //                             tagName: 'circle',
-    //                             selector: 'portBody',
-    //                             attributes: {
-    //                                 'r': 10
-    //                             }
-    //                         }],
-    //                         position: {
-    //                             name: 'right'
-    //                         },
-    //                         attrs: {
-    //                             portBody: {
-    //                                 magnet: true,
-    //                                 fill: '#61549c',
-    //                                 strokeWidth: 0
-    //                             },
-    //                             portLabel: {
-    //                                 fontSize: 11,
-    //                                 fill: '#61549c',
-    //                                 fontWeight: 800
-    //                             }
-    //                         },
-    //                         label: {
-    //                             position: {
-    //                                 name: 'right',
-    //                                 args: {
-    //                                     y: 0
-    //                                 }
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }, joint.shapes.standard.Rectangle.prototype.defaults);
-    //     }
-    // }
-
-    // export class Link extends joint.shapes.standard.Link {
-
-    //     defaultLabel = {
-    //         attrs: {
-    //             rect: {
-    //                 fill: '#ffffff',
-    //                 stroke: '#8f8f8f',
-    //                 strokeWidth: 1,
-    //                 width: 'calc(w + 10)',
-    //                 height: 'calc(h + 10)',
-    //                 x: 'calc(x - 5)',
-    //                 y: 'calc(y - 5)'
-    //             }
-    //         }
-    //     };
-
-    //     private getDataWidthCached = function(d: string){
-    //         if (cache.has(d)) {
-    //             return cache.get(d);
-    //         } else {
-    //             const bbox = (new joint.g.Path(d)).bbox();
-    //             cache.set(d, bbox ? bbox.width : 0);
-    //             return cache.get(d);
-    //         }
-    //     };
-
-    //     static connectionPoint(line: any, view: any, magnet: any, _opt: any, type: any, linkView: any): joint.g.Point {
-    //         const link = linkView.model;
-    //         const markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
-    //         const opt: any = { offset: markerWidth, stroke: true };
-    //         // connection point for UML shapes lies on the root group containing all the shapes components
-    //         const modelType = view.model.get('type');
-    //         // taking the border stroke-width into account
-    //         if (modelType === 'standard.InscribedImage') { opt.selector = 'border'; }
-    //         return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
-    //     }
-
-    //     defaults() {
-    //         return joint.util.defaultsDeep({
-    //             type: 'Link',
-    //             router: {
-    //                 name: 'normal'
-    //             },
-    //             connector: {
-    //                 name: 'rounded'
-    //             },
-    //             labels: [],
-    //             attrs: {
-    //                 line: {
-    //                     stroke: '#8f8f8f',
-    //                     strokeDasharray: '0',
-    //                     strokeWidth: 2,
-    //                     fill: 'none',
-    //                     sourceMarker: {
-    //                         type: 'path',
-    //                         d: 'M 0 0 0 0',
-    //                         stroke: 'none'
-    //                     },
-    //                     targetMarker: {
-    //                         type: 'path',
-    //                         d: 'M 0 -5 -10 0 0 5 z',
-    //                         stroke: 'none'
-    //                     }
-    //                 }
-    //             }
-    //         }, joint.shapes.standard.Link.prototype.defaults);
-    //     }
-
-    //     getMarkerWidth(type: any) {
-    //         const d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
-    //         return this.getDataWidth(d);
-    //     }
-
-    //     getDataWidth(d: any) {
-    //         return this.getDataWidthCached(d);
-    //     }
-    // }
 
     const TableView = shapes.standard.RecordView;
 

@@ -339,6 +339,7 @@
                     {
                         type: 'Table',
                         columns: [{ name: 'id', type: 'int', key: true }] as any[],
+                        methods: [{ name: 'getId', returnType: 'int' }] as any[],
                         padding: { top: 40, bottom: 10, left: 10, right: 10 },
                         size: { width: 260 },
                         itemMinLabelWidth: 80,
@@ -387,24 +388,33 @@
                                 // which spans over 2 columns
                                 pointerEvents: 'none'
                             },
-                            itemLabels: {
-                                fontFamily: 'sans-serif',
+                            itemLabels_columns: {
                                 fill: '#636363',
-                                pointerEvents: 'none'
+                                fontFamily: 'sans-serif',
+                                pointerEvents: 'none',
+                                y: 20, // Ajuste inicial para las columnas
                             },
                             itemLabels_1: {
                                 fill: '#9C9C9C',
                                 textAnchor: 'end',
-                                x: 'calc(0.5 * w - 10)'
+                                x: 'calc(0.5 * w - 110)'
                             },
                             itemLabels_keys: {
-                                x: 'calc(0.5 * w - 30)'
+                                x: 'calc(0.5 * w - 110)'
                             },
                             iconsGroup_1: {
                                 // SVGGroup does not accept `x` attribute
-                                refX: '50%',
+                                refX: '25%',
                                 refX2: -26
-                            }
+                            },
+                            itemLabels_methods: {
+                                // Calcula la posición `y` en función del número de atributos
+                                y: (data: { columns: string | any[]; }) => `calc(${20 + data.columns.length * 25}px)`, // Desplazamiento según el número de columnas
+                                fill: '#636363',
+                                fontFamily: 'sans-serif',
+                                pointerEvents: 'none'
+                            },
+
                         }
                     },
                     {
