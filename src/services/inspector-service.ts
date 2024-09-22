@@ -3,7 +3,20 @@ import * as joint from '@joint/plus';
 export class InspectorService {
 
     create(cell: joint.dia.Cell): joint.ui.Inspector {
-        const config = this.getInspectorConfig()[cell.get('type')];
+        var config = this.getInspectorConfig()[cell.get('type')];
+
+        // Verificar si existe una configuración para el tipo de celda
+        if (!config) {
+            console.warn("Inspector for cell type ".concat(cell.get('type'), " not found."));
+            return null;
+        }
+
+        // Verificar si `inputs` y `groups` están definidos
+        if (!config.inputs || !config.groups) {
+            console.warn("Inspector config for cell type ".concat(cell.get('type'), " is invalid."));
+            return null;
+        }
+
         const inspector = new joint.ui.Inspector({
             cell: cell,
             inputs: config.inputs,
