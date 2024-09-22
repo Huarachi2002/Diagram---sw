@@ -114,12 +114,19 @@ const cache = new Map();
             super.initialize(...args);
             this.on('change', () => this.onColumnsChange());
             this._setColumns(this.get('columns'));
+            this._setMethods(this.get('methods'));
         }
     
         onColumnsChange() {
             if (this.hasChanged('columns')) {
                 this._setColumns(this.get('columns'));
             }
+        }
+
+        onMethodChange() {
+            if(this.hasChanged('methods')) {
+                this._setColumns(this.get('methods'));
+            }   
         }
     
         setName(name: string, opt?: object) {
@@ -140,6 +147,11 @@ const cache = new Map();
     
         setColumns(data: Array<ColumnData>) {
             this.set('columns', data);
+            return this;
+        }
+
+        setMethod(data: Array<ColumnData>) {
+            this.set('methods', data);
             return this;
         }
     
@@ -182,6 +194,31 @@ const cache = new Map();
     
             return this;
         }
+
+        protected _setMethods(data: Array<ColumnData> = []) {
+            const names: Array<object> = [];
+            const values: Array<object> = [];
+    
+            data.forEach((item, i) => {
+                if (!item.name) return;
+                names.push({
+                    id: item.name,
+                    label: item.name,
+                    span: 2
+                });
+    
+                const value = {
+                    id: `${item.type}_${i}`,
+                    label: item.type
+                };
+                values.push(value);
+            });
+    
+            this.set('items', [names, values]);
+            this.removeInvalidLinks();
+    
+            return this;
+        }
     }
 
     export class UMLClass extends joint.shapes.standard.Rectangle {
@@ -192,46 +229,28 @@ const cache = new Map();
         }];
 
         defaults() {
-
             return joint.util.defaultsDeep({
-                type: 'UMLClass',  // Define el tipo
-                allowOrthogonalResize: false,  // No permitir el redimensionamiento ortogonal
-                size: { width: 100, height: 70 },  // Ajusta el tamaño según sea necesario
+                type: 'UMLClass',
+                methods: [],  // Definir el campo para los métodos
+                size: { width: 100, height: 70 },
                 attrs: {
-                    root: {
-                        dataTooltip: 'Class with ports',  // Tooltip para mostrar información
-                        dataTooltipPosition: 'left',
-                        dataTooltipPositionSelector: '.joint-stencil'
-                    },
-                    body: {  // Definir el estilo del cuerpo
-                        fill: 'transparent',
-                        stroke: '#31d0c6',
-                        strokeWidth: 2,
-                        strokeDasharray: '0',
-                    },
-                    label: {  // Definir el texto del nombre de la clase
+                    label: {
                         text: 'ClassName',
                         fill: '#c6c7e2',
                         fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 11,
-                        strokeWidth: 0
+                        fontSize: 11
                     },
-                    '.attributes': {  // Definir los atributos de la clase
+                    '.attributes': {
                         text: '+ attribute1: String\n+ attribute2: Integer',
                         fill: '#c6c7e2',
                         fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 10,
-                        strokeWidth: 0
+                        fontSize: 10
                     },
-                    '.methods': {  // Definir los métodos de la clase
+                    '.methods': {  // Nueva sección para métodos
                         text: '+ method1(): void\n+ method2(param: String): String',
                         fill: '#c6c7e2',
                         fontFamily: 'Roboto Condensed',
-                        fontWeight: 'Normal',
-                        fontSize: 10,
-                        strokeWidth: 0
+                        fontSize: 10
                     }
                 },
                 ports: {  // Definir los puertos de entrada y salida
@@ -280,6 +299,18 @@ const cache = new Map();
                     }
                 }
             }, joint.shapes.standard.Rectangle.prototype.defaults);
+        }
+        // Agregar métodos al modelo
+        setMethods(methods: Array<{ name: string, params: string, returnType: string }>) {
+            this.set('methods', methods);
+            this.updateMethods();
+        }
+
+        // Actualizar la visualización de los métodos
+        updateMethods() {
+            const methods = this.get('methods');
+            const methodsText = methods.map((method: { name: any; params: any; returnType: any; }) => `+ ${method.name}(${method.params}): ${method.returnType}`).join('\n');
+            this.attr('.methods/text', methodsText);
         }
     }
 

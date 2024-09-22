@@ -1564,7 +1564,7 @@ module.exports = resolveConflicts;
  * Returns:
  *
  *    A new list of entries of the form {vs, i, barycenter, weight}. The list
- *    `vs` may either be a singleton or it may be an Agregacion of nodes
+ *    `vs` may either be a singleton or it may be an aggregation of nodes
  *    ordered such that they do not violate constraints from the constraint
  *    graph. The property `i` is the lowest original index of any of the
  *    elements in `vs`.
@@ -2914,7 +2914,7 @@ function addDummyNode(g, type, attrs, name) {
 }
 
 /*
- * Returns a new graph with only simple edges. Handles Agregacion of data
+ * Returns a new graph with only simple edges. Handles aggregation of data
  * associated with multi-edges.
  */
 function simplify(g) {
@@ -5316,7 +5316,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.Association = exports.Dependency = exports.Composition = exports.Agregacion = exports.Herencia = exports.Link = exports.UMLClass = exports.Table = void 0;
+exports.standard = exports.NavigatorLinkView = exports.NavigatorElementView = exports.Dependencia = exports.Composicion = exports.Agregacion = exports.Herencia = exports.LinkStencilDependencia = exports.LinkStencilComposicion = exports.LinkStencilAgregacion = exports.LinkStencilHerencia = exports.Link = exports.UMLClass = exports.Table = void 0;
 var joint = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
 var plus_1 = __webpack_require__(/*! @joint/plus */ "./node_modules/@joint/plus/joint-plus.mjs");
 var cache = new Map();
@@ -5649,27 +5649,188 @@ var Link = /** @class */ (function (_super) {
     return Link;
 }(plus_1.dia.Link));
 exports.Link = Link;
+var LinkStencilHerencia = /** @class */ (function (_super) {
+    __extends(LinkStencilHerencia, _super);
+    function LinkStencilHerencia() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LinkStencilHerencia.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'LinkStencilHerencia',
+            size: { width: 50, height: 10 },
+            attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#000000',
+                    strokeWidth: 2
+                },
+                label: {
+                    text: 'Link',
+                    fill: '#000000',
+                    fontSize: 10,
+                    fontWeight: 'normal'
+                }
+            }
+        }, joint.shapes.standard.Rectangle.prototype.defaults);
+    };
+    return LinkStencilHerencia;
+}(joint.shapes.standard.Rectangle));
+exports.LinkStencilHerencia = LinkStencilHerencia;
+var LinkStencilAgregacion = /** @class */ (function (_super) {
+    __extends(LinkStencilAgregacion, _super);
+    function LinkStencilAgregacion() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LinkStencilAgregacion.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'LinkStencilAgregacion',
+            size: { width: 50, height: 10 },
+            attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#000000',
+                    strokeWidth: 2
+                },
+                label: {
+                    text: 'Link',
+                    fill: '#000000',
+                    fontSize: 10,
+                    fontWeight: 'normal'
+                }
+            }
+        }, joint.shapes.standard.Rectangle.prototype.defaults);
+    };
+    return LinkStencilAgregacion;
+}(joint.shapes.standard.Rectangle));
+exports.LinkStencilAgregacion = LinkStencilAgregacion;
+var LinkStencilComposicion = /** @class */ (function (_super) {
+    __extends(LinkStencilComposicion, _super);
+    function LinkStencilComposicion() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LinkStencilComposicion.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'LinkStencilComposicion',
+            size: { width: 50, height: 10 },
+            attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#000000',
+                    strokeWidth: 2
+                },
+                label: {
+                    text: 'Link',
+                    fill: '#000000',
+                    fontSize: 10,
+                    fontWeight: 'normal'
+                }
+            }
+        }, joint.shapes.standard.Rectangle.prototype.defaults);
+    };
+    return LinkStencilComposicion;
+}(joint.shapes.standard.Rectangle));
+exports.LinkStencilComposicion = LinkStencilComposicion;
+var LinkStencilDependencia = /** @class */ (function (_super) {
+    __extends(LinkStencilDependencia, _super);
+    function LinkStencilDependencia() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LinkStencilDependencia.prototype.defaults = function () {
+        return joint.util.defaultsDeep({
+            type: 'LinkStencilDependencia',
+            size: { width: 50, height: 10 },
+            attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#000000',
+                    strokeWidth: 2
+                },
+                label: {
+                    text: 'Link',
+                    fill: '#000000',
+                    fontSize: 10,
+                    fontWeight: 'normal'
+                }
+            }
+        }, joint.shapes.standard.Rectangle.prototype.defaults);
+    };
+    return LinkStencilDependencia;
+}(joint.shapes.standard.Rectangle));
+exports.LinkStencilDependencia = LinkStencilDependencia;
 var Herencia = /** @class */ (function (_super) {
     __extends(Herencia, _super);
     function Herencia() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.markup = [{
+                tagName: 'path',
+                selector: 'wrapper',
+                attributes: {
+                    'fill': 'none',
+                    'stroke': 'transparent'
+                }
+            }, {
+                tagName: 'path',
+                selector: 'line',
+                attributes: {
+                    'fill': 'none'
+                }
+            }];
+        _this.getDataWidthCached = function (d) {
+            if (cache.has(d)) {
+                return cache.get(d);
+            }
+            else {
+                var bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
+        return _this;
     }
     Herencia.prototype.defaults = function () {
-        return joint.util.defaultsDeep({
-            type: 'Herencia',
+        return __assign(__assign({}, _super.prototype.defaults), { type: 'Herencia', size: { width: 100, height: 30 }, 
+            // z: -1,
             attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#A0A0A0',
+                    strokeWidth: 2
+                },
+                wrapper: {
+                    connection: true,
+                    strokeWidth: 10
+                },
                 line: {
-                    stroke: '#000000',
+                    connection: true,
+                    stroke: '#A0A0A0',
                     strokeWidth: 2,
                     targetMarker: {
                         type: 'path',
-                        d: 'M 10 0 L 0 -5 L 0 5 Z',
+                        d: 'M 20 -10 0 0 20 10 Z',
                         fill: 'white',
-                        stroke: '#000000',
+                        stroke: '#A0A0A0',
                     }
                 }
-            }
-        }, plus_1.dia.Link.prototype.defaults);
+            } });
+    };
+    Herencia.connectionPoint = function (line, view, magnet, _opt, type, linkView) {
+        var link = linkView.model;
+        var markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+        var opt = { offset: markerWidth, stroke: true };
+        // connection point for UML shapes lies on the root group containing all the shapes components
+        var modelType = view.model.get('type');
+        // taking the border stroke-width into account
+        if (modelType === 'standard.InscribedImage') {
+            opt.selector = 'border';
+        }
+        return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+    };
+    Herencia.prototype.getMarkerWidth = function (type) {
+        var d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+        return this.getDataWidth(d);
+    };
+    Herencia.prototype.getDataWidth = function (d) {
+        return this.getDataWidthCached(d);
     };
     return Herencia;
 }(plus_1.dia.Link));
@@ -5677,101 +5838,274 @@ exports.Herencia = Herencia;
 var Agregacion = /** @class */ (function (_super) {
     __extends(Agregacion, _super);
     function Agregacion() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.markup = [{
+                tagName: 'path',
+                selector: 'wrapper',
+                attributes: {
+                    'fill': 'none',
+                    'stroke': 'transparent'
+                }
+            }, {
+                tagName: 'path',
+                selector: 'line',
+                attributes: {
+                    'fill': 'none'
+                }
+            }];
+        _this.getDataWidthCached = function (d) {
+            if (cache.has(d)) {
+                return cache.get(d);
+            }
+            else {
+                var bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
+        return _this;
     }
     Agregacion.prototype.defaults = function () {
-        return joint.util.defaultsDeep({
-            type: 'Agregacion',
+        return __assign(__assign({}, _super.prototype.defaults), { type: 'Agregacion', size: { width: 100, height: 30 }, 
+            // z: -1,
             attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#A0A0A0',
+                    strokeWidth: 2
+                },
+                wrapper: {
+                    connection: true,
+                    strokeWidth: 10
+                },
                 line: {
-                    stroke: '#000000',
+                    connection: true,
+                    stroke: '#A0A0A0',
                     strokeWidth: 2,
                     targetMarker: {
                         type: 'path',
-                        d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',
+                        d: 'M 20 0 L 10 -10 L 0 0 L 10 10 Z',
                         fill: 'white',
-                        stroke: '#000000',
+                        stroke: '#A0A0A0'
                     }
                 }
-            }
-        }, plus_1.dia.Link.prototype.defaults);
+            } });
+    };
+    Agregacion.connectionPoint = function (line, view, magnet, _opt, type, linkView) {
+        var link = linkView.model;
+        var markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+        var opt = { offset: markerWidth, stroke: true };
+        // connection point for UML shapes lies on the root group containing all the shapes components
+        var modelType = view.model.get('type');
+        // taking the border stroke-width into account
+        if (modelType === 'standard.InscribedImage') {
+            opt.selector = 'border';
+        }
+        return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+    };
+    Agregacion.prototype.getMarkerWidth = function (type) {
+        var d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+        return this.getDataWidth(d);
+    };
+    Agregacion.prototype.getDataWidth = function (d) {
+        return this.getDataWidthCached(d);
     };
     return Agregacion;
 }(plus_1.dia.Link));
 exports.Agregacion = Agregacion;
-var Composition = /** @class */ (function (_super) {
-    __extends(Composition, _super);
-    function Composition() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var Composicion = /** @class */ (function (_super) {
+    __extends(Composicion, _super);
+    function Composicion() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.markup = [{
+                tagName: 'path',
+                selector: 'wrapper',
+                attributes: {
+                    'fill': 'none',
+                    'stroke': 'transparent'
+                }
+            }, {
+                tagName: 'path',
+                selector: 'line',
+                attributes: {
+                    'fill': 'none'
+                }
+            }];
+        _this.getDataWidthCached = function (d) {
+            if (cache.has(d)) {
+                return cache.get(d);
+            }
+            else {
+                var bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
+        return _this;
     }
-    Composition.prototype.defaults = function () {
-        return joint.util.defaultsDeep({
-            type: 'Composition',
+    Composicion.prototype.defaults = function () {
+        return __assign(__assign({}, _super.prototype.defaults), { type: 'Composicion', size: { width: 100, height: 30 }, 
+            // z: -1,
             attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#A0A0A0',
+                    strokeWidth: 2
+                },
+                wrapper: {
+                    connection: true,
+                    strokeWidth: 10
+                },
                 line: {
-                    stroke: '#000000',
+                    connection: true,
+                    stroke: '#A0A0A0',
                     strokeWidth: 2,
                     targetMarker: {
                         type: 'path',
-                        d: 'M 10 0 L 0 -5 L -10 0 L 0 5 Z',
-                        fill: '#000000',
-                        stroke: '#000000',
+                        d: 'M 20 0 L 10 -10 L 0 0 L 10 10 Z',
+                        fill: '#A0A0A0',
+                        stroke: '#A0A0A0'
                     }
                 }
-            }
-        }, plus_1.dia.Link.prototype.defaults);
+            } });
     };
-    return Composition;
+    Composicion.connectionPoint = function (line, view, magnet, _opt, type, linkView) {
+        var link = linkView.model;
+        var markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+        var opt = { offset: markerWidth, stroke: true };
+        // connection point for UML shapes lies on the root group containing all the shapes components
+        var modelType = view.model.get('type');
+        // taking the border stroke-width into account
+        if (modelType === 'standard.InscribedImage') {
+            opt.selector = 'border';
+        }
+        return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
+    };
+    Composicion.prototype.getMarkerWidth = function (type) {
+        var d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+        return this.getDataWidth(d);
+    };
+    Composicion.prototype.getDataWidth = function (d) {
+        return this.getDataWidthCached(d);
+    };
+    return Composicion;
 }(plus_1.dia.Link));
-exports.Composition = Composition;
-var Dependency = /** @class */ (function (_super) {
-    __extends(Dependency, _super);
-    function Dependency() {
-        return _super !== null && _super.apply(this, arguments) || this;
+exports.Composicion = Composicion;
+var Dependencia = /** @class */ (function (_super) {
+    __extends(Dependencia, _super);
+    function Dependencia() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.markup = [{
+                tagName: 'path',
+                selector: 'wrapper',
+                attributes: {
+                    'fill': 'none',
+                    'stroke': 'transparent'
+                }
+            }, {
+                tagName: 'path',
+                selector: 'line',
+                attributes: {
+                    'fill': 'none'
+                }
+            }];
+        _this.getDataWidthCached = function (d) {
+            if (cache.has(d)) {
+                return cache.get(d);
+            }
+            else {
+                var bbox = (new joint.g.Path(d)).bbox();
+                cache.set(d, bbox ? bbox.width : 0);
+                return cache.get(d);
+            }
+        };
+        return _this;
     }
-    Dependency.prototype.defaults = function () {
-        return joint.util.defaultsDeep({
-            type: 'Dependency',
+    Dependencia.prototype.defaults = function () {
+        return __assign(__assign({}, _super.prototype.defaults), { type: 'Dependencia', size: { width: 100, height: 30 }, 
+            // z: -1,
             attrs: {
+                body: {
+                    fill: 'none',
+                    stroke: '#A0A0A0',
+                    strokeWidth: 2
+                },
+                wrapper: {
+                    connection: true,
+                    strokeWidth: 10
+                },
                 line: {
-                    stroke: '#000000',
-                    strokeDasharray: '5, 2',
+                    connection: true,
+                    stroke: '#A0A0A0',
                     strokeWidth: 2,
+                    strokeDasharray: '5, 5',
                     targetMarker: {
                         type: 'path',
-                        d: 'M 10 0 L 0 -5 L 0 5 Z',
+                        d: 'M 20 -10 L 0 0 L 20 10',
                         fill: 'none',
-                        stroke: '#000000',
+                        stroke: '#A0A0A0'
                     }
                 }
-            }
-        }, plus_1.dia.Link.prototype.defaults);
+            } });
     };
-    return Dependency;
-}(plus_1.dia.Link));
-exports.Dependency = Dependency;
-var Association = /** @class */ (function (_super) {
-    __extends(Association, _super);
-    function Association() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Association.prototype.defaults = function () {
-        return joint.util.defaultsDeep({
-            type: 'Association',
-            attrs: {
-                line: {
-                    stroke: '#000000',
-                    strokeWidth: 2,
-                    targetMarker: {
-                        type: 'none' // Línea simple para asociación
-                    }
-                }
-            }
-        }, plus_1.dia.Link.prototype.defaults);
+    Dependencia.connectionPoint = function (line, view, magnet, _opt, type, linkView) {
+        var link = linkView.model;
+        var markerWidth = (link.get('type') === 'Link') ? link.getMarkerWidth(type) : 0;
+        var opt = { offset: markerWidth, stroke: true };
+        // connection point for UML shapes lies on the root group containing all the shapes components
+        var modelType = view.model.get('type');
+        // taking the border stroke-width into account
+        if (modelType === 'standard.InscribedImage') {
+            opt.selector = 'border';
+        }
+        return joint.connectionPoints.boundary.call(this, line, view, magnet, opt, type, linkView);
     };
-    return Association;
+    Dependencia.prototype.getMarkerWidth = function (type) {
+        var d = (type === 'source') ? this.attr('line/sourceMarker/d') : this.attr('line/targetMarker/d');
+        return this.getDataWidth(d);
+    };
+    Dependencia.prototype.getDataWidth = function (d) {
+        return this.getDataWidthCached(d);
+    };
+    return Dependencia;
 }(plus_1.dia.Link));
-exports.Association = Association;
+exports.Dependencia = Dependencia;
+// export class Dependency extends dia.Link {
+//     defaults() {
+//         return joint.util.defaultsDeep({
+//             type: 'Dependency',
+//             attrs: {
+//                 line: {
+//                     stroke: '#000000',
+//                     strokeDasharray: '5, 2',  // Línea punteada para dependencia
+//                     strokeWidth: 2,
+//                     targetMarker: {
+//                         type: 'path',
+//                         d: 'M 10 0 L 0 -5 L 0 5 Z',  // Flecha abierta para dependencia
+//                         fill: 'none',
+//                         stroke: '#000000',
+//                     }
+//                 }
+//             }
+//         }, dia.Link.prototype.defaults);
+//     }
+// }
+// export class Association extends dia.Link {
+//     defaults() {
+//         return joint.util.defaultsDeep({
+//             type: 'Association',
+//             attrs: {
+//                 line: {
+//                     stroke: '#000000',
+//                     strokeWidth: 2,
+//                     targetMarker: {
+//                         type: 'none'  // Línea simple para asociación
+//                     }
+//                 }
+//             }
+//         }, dia.Link.prototype.defaults);
+//     }
+// }
 // export class CircularModel extends joint.shapes.standard.Ellipse {
 //     portLabelMarkup = [{
 //         tagName: 'text',
@@ -6021,10 +6355,11 @@ Object.assign(plus_1.shapes, {
         Table: Table,
         TableView: TableView,
         Link: Link,
-        Agregacion: Agregacion,
-        Association: Association,
-        Composition: Composition,
-        Dependency: Dependency,
+        Herencia: Herencia,
+        // Agregacion,
+        // Association,
+        // Composition,
+        // Dependency,
     }
 });
 // }
@@ -8266,6 +8601,53 @@ var KitchenSinkService = /** @class */ (function () {
         this.renderPlugin('.stencil-container', stencilService.stencil);
         stencilService.setShapes();
         stencilService.stencil.on('element:drop', function (elementView) {
+            var model = elementView.model;
+            console.log(model);
+            console.log(model.get('type'));
+            switch (model.get('type')) {
+                case 'LinkStencilHerencia':
+                    var linkH = new appShapes.Herencia({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+                    // Añadir el enlace al gráfico
+                    _this.graph.addCell(linkH);
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilAgregacion':
+                    var linkA = new appShapes.Agregacion({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+                    // Añadir el enlace al gráfico
+                    _this.graph.addCell(linkA);
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilComposicion':
+                    var linkC = new appShapes.Composicion({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+                    // Añadir el enlace al gráfico
+                    _this.graph.addCell(linkC);
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                case 'LinkStencilDependencia':
+                    var linkD = new appShapes.Dependencia({
+                        source: { x: model.get('position').x, y: model.get('position').y },
+                        target: { x: model.get('position').x + 250, y: model.get('position').y }
+                    });
+                    // Añadir el enlace al gráfico
+                    _this.graph.addCell(linkD);
+                    // Remover el dummy link
+                    model.remove();
+                    break;
+                default:
+                    break;
+            }
             _this.selection.collection.reset([elementView.model]);
         });
     };
@@ -8468,7 +8850,7 @@ var KitchenSinkService = /** @class */ (function () {
     };
     KitchenSinkService.prototype.initializeNavigator = function () {
         var navigator = this.navigator = new joint.ui.Navigator({
-            width: 240,
+            width: 300,
             height: 115,
             paperScroller: this.paperScroller,
             zoom: false,
@@ -8987,7 +9369,106 @@ var StencilService = /** @class */ (function () {
                             refX2: -26
                         }
                     }
-                }
+                },
+                {
+                    type: 'Herencia',
+                    attrs: {
+                        line: {
+                            stroke: '#000000',
+                            targetMarker: {
+                                'type': 'path',
+                                'd': 'M 10 -5 0 0 10 5 z',
+                                'fill': '#000000',
+                                'stroke': '#000000'
+                            }
+                        }
+                    },
+                    addToGraph: true
+                },
+                {
+                    type: 'LinkStencilHerencia',
+                    attrs: {
+                        body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                        label: { text: 'Herencia', fill: '#000000', fontSize: 10 }
+                    }
+                },
+                {
+                    type: 'LinkStencilAgregacion',
+                    attrs: {
+                        body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                        label: { text: 'Agregacion', fill: '#000000', fontSize: 10 }
+                    }
+                },
+                {
+                    type: 'LinkStencilComposicion',
+                    attrs: {
+                        body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                        label: { text: 'Composicion', fill: '#000000', fontSize: 10 }
+                    }
+                },
+                {
+                    type: 'LinkStencilDependencia',
+                    attrs: {
+                        body: { fill: 'none', stroke: '#000000', strokeWidth: 2 },
+                        label: { text: 'Dependencia', fill: '#000000', fontSize: 10 }
+                    }
+                },
+                // {
+                //     type: 'Association',
+                //     attrs: {
+                //         line: {
+                //             stroke: '#000000',
+                //             targetMarker: {
+                //                 'type': 'path',
+                //                 'd': 'M 10 -5 0 0 10 5 z',
+                //                 'fill': '#000000',
+                //                 'stroke': '#000000'
+                //             }
+                //         }
+                //     }
+                // },
+                // {
+                //     type: 'Agregacion',
+                //     attrs: {
+                //         line: {
+                //             stroke: '#000000',
+                //             targetMarker: {
+                //                 'type': 'path',
+                //                 'd': 'M 10 -5 0 0 10 5 z',
+                //                 'fill': '#000000',
+                //                 'stroke': '#000000'
+                //             }
+                //         }
+                //     }
+                // },
+                // {
+                //     type: 'Composition',
+                //     attrs: {
+                //         line: {
+                //             stroke: '#000000',
+                //             targetMarker: {
+                //                 'type': 'path',
+                //                 'd': 'M 10 -5 0 0 10 5 z',
+                //                 'fill': '#000000',
+                //                 'stroke': '#000000'
+                //             }
+                //         }
+                //     }
+                // },
+                // {
+                //     type: 'Dependency',
+                //     attrs: {
+                //         line: {
+                //             stroke: '#000000',
+                //             targetMarker: {
+                //                 'type': 'path',
+                //                 'd': 'M 10 -5 0 0 10 5 z',
+                //                 'fill': '#000000',
+                //                 'stroke': '#000000'
+                //             }
+                //         }
+                //     }
+                // },
             ]
         };
     };
